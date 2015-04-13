@@ -12,11 +12,16 @@ namespace CharacterWeaponFramework
     public class Group : MonoBehaviour
     {
         [SerializeField]
-        private List<Character> _groupMembers;
+        private List<ThirdPersonCharacter> _groupMembers;
+        [SerializeField]
+        private List<CharacterData> _groupMemberData;
+        [SerializeField]
+        private List<GameObject> _GroupMemberGameObjects;
         public GameObject _LeadMember;
         public GameObject _DefaultGroupMember;
         public GUIText _GroupMembersText;
         public Vector3 _Position;
+        public Vector3 avgOfGroup;
 
         public Group()
         {}
@@ -24,64 +29,80 @@ namespace CharacterWeaponFramework
         void Start()
         {
             _Position = new Vector3();
-            _groupMembers = new List<Character>();
+            _groupMembers = new List<ThirdPersonCharacter>();
+            _GroupMemberGameObjects = new List<GameObject>();
             //create the GameObject
-            Instantiate(_LeadMember, new Vector3(0f, 0f, 0f), new Quaternion());
-            //store the Character script Components
-            Component t = _LeadMember.GetComponent("ThirdPersonCharacter");
-            ThirdPersonCharacter temp = (ThirdPersonCharacter)t;
-            temp.Name = "Player";
-            this.AddCharacter(temp);
+            UnityEngine.Object t = Instantiate(_LeadMember, new Vector3(0f, 0f, 0f), new Quaternion());
+            this.AddCharacter((GameObject)t);
 
             //create the GameObject
-            Instantiate(_DefaultGroupMember, _groupMembers[0].transform.position, _groupMembers[0].transform.rotation);
-            //store the Character script Components
-            t = _DefaultGroupMember.GetComponent("ThirdPersonCharacter");
-            temp = (ThirdPersonCharacter)t;
-            temp.Name = "Ai";
-            this.AddCharacter(temp);
+            /*Instantiate(_DefaultGroupMember, _groupMembers[0].transform.position, _groupMembers[0].transform.rotation);
+            this.AddCharacter(temp);*/
         }
 
-        public bool AddCharacter(Character newCharacter)
+        public bool AddCharacter(GameObject newCharacter)
         {
-            if(_groupMembers.Count < GlobalConsts.MAX_GROUP_SIZE)
+            if(_groupMembers.Count == 0)
             {
-                _groupMembers.Add(newCharacter);
+                _GroupMemberGameObjects.Add(newCharacter);
+                
+                //store the CharacterData script Components
+                Component t = newCharacter.GetComponent("CharacterData");
+                CharacterData temp = (CharacterData)t;
+                _groupMemberData.Add(temp);
+
+                //store the ThirdPersonCharacter script Components
+                t = newCharacter.GetComponent("ThirdPersonCharacter");
+                ThirdPersonCharacter temp2 = (ThirdPersonCharacter)t;
+                _groupMembers.Add(temp2);
+                return true;
+            }
+            else if ( _groupMembers.Count < GlobalConsts.MAX_GROUP_SIZE)
+            {
+
                 return true;
             }
             return false;
         }
 
-        public bool RemoveCharacter(Character removeCharacter)
+        
+
+        /*public bool RemoveCharacter(GameObject removeCharacter)
         {
+            
             if(_groupMembers.Contains(removeCharacter))
             {
                 _groupMembers.Remove(removeCharacter);
                 return true;
             }
             return false;
-        }
+        }*/
 
         void FixedUpdate()
         {
             StringBuilder s = new StringBuilder();
-            s.Append(_groupMembers[0].Name + ", ");
-            
-            int i = 1;
-            for(i=1;i<_groupMembers.Count;i++)
+            //s.Append(_groupMemberData[0].Name + ", ");
+           /* Component t;
+            CharacterData dat;*/
+            int i = 0;
+            for(i=0;i<_groupMembers.Count;i++)
             {
-                s.Append(_groupMembers[i].Name + ", ");
+                /*t = _GroupMembers[i].GetComponent("CharacterData");
+                dat = (CharacterData)t;*/
+                s.Append(_groupMemberData[i].Name + ", ");
 
             }
             s.Append("\n");
 
-            Vector3 avgOfGroup = new Vector3(0f,0f,0f);
-            for(i=0;i<_groupMembers.Count;i++)
+            avgOfGroup = new Vector3(0f,0f,0f);
+            for(i=0;i<_groupMemberData.Count;i++)
             {
-                avgOfGroup += _groupMembers[i].Position;
-                s.Append(_groupMembers[i].transform.position.ToString() + ", ");
+                /*t = _GroupMembers[i].GetComponent("CharacterData");
+                dat = (CharacterData)t;*/
+                avgOfGroup += _groupMemberData[i].Position;
+                s.Append(_groupMemberData[i].Position.ToString() + ", ");
             }
-            avgOfGroup /= _groupMembers.Count;
+            avgOfGroup /= _groupMemberData.Count;
             _Position = avgOfGroup;
             
             s.Append("\nAvgPosOfGroup ");

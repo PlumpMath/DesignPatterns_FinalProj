@@ -8,7 +8,7 @@ namespace CharacterWeaponFramework
     class Melee : Weapon
     {
 
-        public bool attack(Character target)
+        public bool attack(CharacterData target)
         {
             throw new System.NotImplementedException();
         }

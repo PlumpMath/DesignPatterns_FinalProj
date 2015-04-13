@@ -6,7 +6,7 @@ namespace CharacterWeaponFramework
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
-	public class ThirdPersonCharacter : Character
+	public class ThirdPersonCharacter : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
@@ -73,7 +73,7 @@ namespace CharacterWeaponFramework
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
-            Position = transform.position;   
+            
 		}
 
 

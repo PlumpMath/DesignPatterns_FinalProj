@@ -6,7 +6,7 @@ namespace CharacterWeaponFramework
 {
     [RequireComponent(typeof (NavMeshAgent))]
     [RequireComponent(typeof (ThirdPersonCharacter))]
-    public class AICharacterControl : Character
+    public class AICharacterControl : MonoBehaviour
     {
         public NavMeshAgent agent { get; private set; } // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
