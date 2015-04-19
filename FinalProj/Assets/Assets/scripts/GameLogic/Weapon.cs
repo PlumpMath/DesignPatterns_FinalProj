@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CharacterWeaponFramework
 {
-    public class Weapon
+    public class Weapon : MonoBehaviour
     {
         [SerializeField]
         private string _name;

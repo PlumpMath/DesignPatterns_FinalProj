@@ -17,8 +17,11 @@ namespace CharacterWeaponFramework
         private List<CharacterData> _groupMemberData;
         [SerializeField]
         private List<GameObject> _GroupMemberGameObjects;
+        
+        /*Unity wants these to be public*/
+        //public List<GameObject> _MemberTypes;
         public GameObject _LeadMember;
-        public GameObject _DefaultGroupMember;
+        public GameObject _DefaultGroupMembers;
         public GUIText _GroupMembersText;
         public Vector3 _Position;
         public Vector3 avgOfGroup;
@@ -40,9 +43,9 @@ namespace CharacterWeaponFramework
             this.AddCharacter(temp);*/
         }
 
-        public bool AddCharacter(GameObject newCharacter)
+        public void AddCharacter(GameObject newCharacter)
         {
-            if(_groupMembers.Count == 0)
+            if (_groupMembers.Count < GlobalConsts.MAX_GROUP_SIZE)
             {
                 _GroupMemberGameObjects.Add(newCharacter);
                 
@@ -55,14 +58,7 @@ namespace CharacterWeaponFramework
                 t = newCharacter.GetComponent("ThirdPersonCharacter");
                 ThirdPersonCharacter temp2 = (ThirdPersonCharacter)t;
                 _groupMembers.Add(temp2);
-                return true;
             }
-            else if ( _groupMembers.Count < GlobalConsts.MAX_GROUP_SIZE)
-            {
-
-                return true;
-            }
-            return false;
         }
 
         

@@ -84,6 +84,7 @@
      <Compile Include="Assets\Assets\Utility\SimpleActivatorMenu.cs" />
      <Compile Include="Assets\Assets\Utility\SimpleMouseRotator.cs" />
      <Compile Include="Assets\Assets\Utility\SmoothFollow.cs" />
+     <Compile Include="Assets\Assets\Utility\TerrainPositionUtils.cs" />
      <Compile Include="Assets\Assets\Utility\TimedObjectActivator.cs" />
      <Compile Include="Assets\Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Assets\Utility\WaypointCircuit.cs" />
@@ -99,6 +100,7 @@
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
+     <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
