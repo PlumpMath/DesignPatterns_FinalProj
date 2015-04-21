@@ -101,6 +101,7 @@
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
      <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
+     <Compile Include="Assets\Assets\scripts\UpdateGUI.cs" />
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

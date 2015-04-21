@@ -16,7 +16,6 @@ public class SpawnerTest : MonoBehaviour
     [SerializeField]
     private int _SpawnCap;
     private List<GameObject> _ThingsSpawned;
-    public Group _group;
     
 	// Use this for initialization
 	void Start () 
@@ -28,13 +27,14 @@ public class SpawnerTest : MonoBehaviour
 	void Update () 
     {
         System.Random rand = new System.Random();
+        
         if(rand.NextDouble() < _ChanceToSpawn && _ThingsSpawned.Count < _SpawnCap)
         {
             int temp = rand.Next(0, _ThingsToSpawn.Count);
 
-            Vector3 tempVec = UnityEngine.Random.insideUnitSphere * _SpawnRadius;
-            
-            tempVec.y = TerrainPositionUtils.GetGroundLevelAtPosition(tempVec);
+            Vector3 tempVec = UnityEngine.Random.insideUnitSphere * _SpawnRadius + transform.position;
+
+            tempVec.y = transform.position.y;
 
             Quaternion tempQuaternion = new Quaternion();
             UnityEngine.Object ThingSpawned = Instantiate(_ThingsToSpawn[temp], tempVec, tempQuaternion);
