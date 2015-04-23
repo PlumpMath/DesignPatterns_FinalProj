@@ -17,12 +17,12 @@ public class UpdateGUI : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void LateUpdate () 
     {
         Canvas can = this.GetComponentInChildren<Canvas>();
-        Text text = (Text)can.GetComponent("Text");
+        Text text = (Text)can.GetComponentInChildren<Text>();
         List<CharacterData> charData = _playerGroup.GroupMembersCharacterData;
-        Vector3 avgOfGroup = new Vector3();
+        Vector3 avgOfGroup = _playerGroup.avgOfGroup;
 
         StringBuilder s = new StringBuilder();
         int i = 0;
@@ -35,18 +35,17 @@ public class UpdateGUI : MonoBehaviour
         }
         s.Append("\n");
 
-        avgOfGroup = new Vector3(0f, 0f, 0f);
+        //avgOfGroup = new Vector3(0f, 0f, 0f);
         for (i = 0; i < charData.Count; i++)
         {
             /*t = _GroupMembers[i].GetComponent("CharacterData");
             dat = (CharacterData)t;*/
-            avgOfGroup += charData[i].Position;
             s.Append(charData[i].Position.ToString() + ", ");
         }
-        avgOfGroup /= charData.Count;
+        //avgOfGroup /= charData.Count;
 
         s.Append("\nAvgPosOfGroup ");
-        s.Append(avgOfGroup);
+        s.Append(avgOfGroup.ToString());
         text.text = s.ToString();
 	}
 }

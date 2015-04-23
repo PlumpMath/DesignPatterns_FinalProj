@@ -23,7 +23,6 @@ namespace CharacterWeaponFramework
         public GameObject _LeadMember;
         public GameObject _DefaultGroupMembers;
         //public GUIText _GroupMembersText;
-        public Vector3 _Position;
         public Vector3 avgOfGroup;
 
         public List<ThirdPersonCharacter> GroupMembersThirdPersonCharacter
@@ -42,7 +41,7 @@ namespace CharacterWeaponFramework
 
         void Start()
         {
-            _Position = new Vector3();
+            avgOfGroup = new Vector3();
             _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _GroupMemberGameObjects = new List<GameObject>();
             //create the GameObject
@@ -85,14 +84,17 @@ namespace CharacterWeaponFramework
             return false;
         }*/
 
-        void FixedUpdate()
+        void Update()
         {
-            
-            //s.Append(_groupMemberData[0].Name + ", ");
-           /* Component t;
-            CharacterData dat;*/
-            
-            //_GroupMembersText.text = s.ToString();
+            int i = 0;
+            avgOfGroup = new Vector3(0f, 0f, 0f);
+            for (i = 0; i < _groupMemberCharacterData.Count; i++)
+            {
+                /*t = _GroupMembers[i].GetComponent("CharacterData");
+                dat = (CharacterData)t;*/
+                avgOfGroup += _groupMemberCharacterData[i].Position;
+            }
+            avgOfGroup /= _groupMemberCharacterData.Count;
         }
     }
 }

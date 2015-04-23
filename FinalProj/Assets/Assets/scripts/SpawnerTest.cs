@@ -39,10 +39,6 @@ public class SpawnerTest : MonoBehaviour
             Quaternion tempQuaternion = new Quaternion();
             UnityEngine.Object ThingSpawned = Instantiate(_ThingsToSpawn[temp], tempVec, tempQuaternion);
             
-            
-            
-            
-
             try
             {
                 GameObject t = (GameObject)ThingSpawned;
@@ -50,7 +46,7 @@ public class SpawnerTest : MonoBehaviour
                 GameObject g = GameObject.FindGameObjectWithTag("MainCamera");
                 can.worldCamera = g.GetComponent<Camera>();
 
-                UnityEngine.UI.Button but = t.GetComponent<UnityEngine.UI.Button>();
+                //UnityEngine.UI.Button but = t.GetComponent<UnityEngine.UI.Button>();
                 //but.onClick.AddListener(() => _group.AddCharacter(t));
 
                 _ThingsSpawned.Add(t);
