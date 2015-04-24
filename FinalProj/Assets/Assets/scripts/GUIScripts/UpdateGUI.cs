@@ -13,8 +13,13 @@ public class UpdateGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+	    
 	}
+
+    void OnLevelWasLoaded()
+    {
+        _playerGroup = GameStateInfo._PlayerGroupData;
+    }
 	
 	// Update is called once per frame
 	void LateUpdate () 

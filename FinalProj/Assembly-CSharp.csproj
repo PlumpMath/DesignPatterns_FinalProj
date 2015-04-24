@@ -99,6 +99,7 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\Melee.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\WeaponStats.cs" />
+     <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
