@@ -12,3 +12,4 @@ C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.dll
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.pdb
+C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\Temp\bin\Debug\Assembly-UnityScript-firstpass.dll
