@@ -45,8 +45,7 @@ namespace CharacterWeaponFramework
             _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _GroupMemberGameObjects = new List<GameObject>();
             //create the GameObject
-            UnityEngine.Object t = Instantiate(_LeadMember, new Vector3(0f, 0f, 0f), new Quaternion());
-            this.AddCharacter((GameObject)t);
+            this.AddCharacter(_LeadMember);
 
             //create the GameObject
             /*Instantiate(_DefaultGroupMember, _groupMembers[0].transform.position, _groupMembers[0].transform.rotation);
@@ -57,15 +56,25 @@ namespace CharacterWeaponFramework
         {
             if (_groupMembersThirdPersonCharacter.Count < GlobalConsts.MAX_GROUP_SIZE)
             {
-                _GroupMemberGameObjects.Add(newCharacter);
+                UnityEngine.Object tmp = Instantiate(newCharacter, new Vector3(0f, 0f, 0f), new Quaternion());
+                GameObject newGO = (GameObject)tmp;
+
+                //set the target for any AI characters to the member in front of them in the group
+                AICharacterControl AI = newGO.GetComponent<AICharacterControl>();
+                if (AI != null && _GroupMemberGameObjects.Count > 0)
+                {
+                    AI.target = _GroupMemberGameObjects[_GroupMemberGameObjects.Count - 1];
+                }
+
+                _GroupMemberGameObjects.Add(newGO);
                 
                 //store the CharacterData script Components
-                Component t = newCharacter.GetComponent("CharacterData");
+                Component t = newGO.GetComponent("CharacterData");
                 CharacterData temp = (CharacterData)t;
                 _groupMemberCharacterData.Add(temp);
 
                 //store the ThirdPersonCharacter script Components
-                t = newCharacter.GetComponent("ThirdPersonCharacter");
+                t = newGO.GetComponent("ThirdPersonCharacter");
                 ThirdPersonCharacter temp2 = (ThirdPersonCharacter)t;
                 _groupMembersThirdPersonCharacter.Add(temp2);
             }

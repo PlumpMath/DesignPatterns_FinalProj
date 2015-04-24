@@ -90,6 +90,8 @@
      <Compile Include="Assets\Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\Assets\scripts\CameraController.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\StartGame.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\UpdateGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterData.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterStats.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
@@ -101,7 +103,6 @@
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
      <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
-     <Compile Include="Assets\Assets\scripts\UpdateGUI.cs" />
      <Compile Include="Assets\DnD_Sandbox\Movement.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
      <Compile Include="Assets\Inventory_new\Scripts\Inventory.cs" />
