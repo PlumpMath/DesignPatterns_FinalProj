@@ -12,3 +12,5 @@ C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\UnityVS.FinalProj.CSharp.csprojResolveAssemblyReference.cache
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.dll
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.pdb
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\obj\Debug\UnityVS.FinalProj.CSharp.csprojResolveAssemblyReference.cache
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.dll
