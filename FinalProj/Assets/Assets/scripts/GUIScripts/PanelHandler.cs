@@ -3,33 +3,22 @@ using UnityEngine.UI;
 using System.Collections;
 using CharacterWeaponFramework;
 
-public class PanelHandler : MonoBehaviour 
+namespace GUIScripts
 {
-    public void TogglePanel(GameObject panel)
+    public class PanelHandler : MonoBehaviour
     {
-        if(panel.activeInHierarchy==false)
+        public void TogglePanel(GameObject panel)
         {
-            panel.SetActive(true);
-        }
-        else
-        {
-            panel.SetActive(false);
-        }
-    }
-
-    void OnLevelWasLoaded()
-    {
-        TargetInfo[] targs = GetComponentsInChildren<TargetInfo>();
-        int temp = GameStateInfo.PlayerGroupData.GroupMembersCharacterData.Count;
-        //disable all buttons that don't have a corresponding gameobject
-        if(targs.Length > temp)
-        {
-            int i = 0;
-            for(i = temp;i<targs.Length;i++)
+            if (panel.activeInHierarchy == false)
             {
-                targs[i].gameObject.SetActive(false);
+                panel.SetActive(true);
+            }
+            else
+            {
+                panel.SetActive(false);
             }
         }
 
+        
     }
 }

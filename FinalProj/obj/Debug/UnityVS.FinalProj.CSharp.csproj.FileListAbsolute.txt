@@ -14,3 +14,15 @@ C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj
 C:\Users\James\Desktop\Files\Homework\CSCD349\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.pdb
 D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\obj\Debug\UnityVS.FinalProj.CSharp.csprojResolveAssemblyReference.cache
 D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\Assembly-UnityScript-firstpass.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEditor.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEngine.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEngine.xml
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEditor.xml
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+D:\Users\James\Desktop\Files\Programming\UnityProjects\DesignPatterns_FinalProj\FinalProj\obj\Debug\Assembly-CSharp.pdb

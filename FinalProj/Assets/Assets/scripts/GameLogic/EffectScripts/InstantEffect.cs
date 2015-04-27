@@ -18,7 +18,9 @@ namespace CharacterWeaponFramework
             get { return _EffectName; }
         }
 
-        public abstract void CreateEffect(CharacterData target);
+        public abstract IEffect CreateEffect(CharacterData target);
+
+
 
     }
 }

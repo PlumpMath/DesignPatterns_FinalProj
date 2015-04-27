@@ -11,6 +11,8 @@ namespace CharacterWeaponFramework
         public override void attack(CharacterData target)
         {
             throw new System.NotImplementedException();
+
+            
         }
     }
 }

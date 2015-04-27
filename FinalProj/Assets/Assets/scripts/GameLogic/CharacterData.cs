@@ -184,14 +184,14 @@ namespace CharacterWeaponFramework
         {
             float temp = UnityEngine.Random.value;
             //the character uses up stamina and mana even if the attack misses
-            _curMP = _curMP - _weapon.Stats.ManaCost;
-            _curStamina = _curStamina - _weapon.Stats.StaminaCost;
+            _curMP = _curMP - _weapon.ManaCost;
+            _curStamina = _curStamina - _weapon.StaminaCost;
             //if the characters chance to hit and the weapons chance to hit and both less than or equal to a randomly determined value
             //the attack lands
-            if(_chanceToHit <= temp && _weapon.Stats.ChanceToHit <= temp)
+            if(_chanceToHit <= temp && _weapon.ChanceToHit <= temp)
             {
                 //generate a random number between min and max damage of this characters weapon;
-                double dmg = UnityEngine.Random.value * (target.Weapon.Stats.MaxDamge - target.Weapon.Stats.MinDamage) + target.Weapon.Stats.MinDamage;
+                double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamge - target.Weapon.MinDamage) + target.Weapon.MinDamage;
                 target.CurHP = target.CurHP - dmg;
 
                 return true;

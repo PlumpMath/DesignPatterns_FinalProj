@@ -8,7 +8,7 @@ namespace CharacterWeaponFramework
 {
     public interface IEffect
     {
-        void CreateEffect(CharacterData target);
+        IEffect CreateEffect(CharacterData target);
 
         string EffectName{get;}
 

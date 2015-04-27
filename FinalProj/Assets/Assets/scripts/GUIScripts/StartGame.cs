@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartGame : MonoBehaviour 
+namespace GUIScripts
 {
-	public void StartClick()
+    public class StartGame : MonoBehaviour
     {
-        Application.LoadLevel("FinalProjTestingWorld");
+
+        public void StartLevel()
+        {
+            Application.LoadLevel("FinalProjTestingWorld");
+        }
     }
 }
+

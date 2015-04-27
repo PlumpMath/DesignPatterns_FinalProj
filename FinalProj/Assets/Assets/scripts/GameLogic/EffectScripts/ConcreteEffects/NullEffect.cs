@@ -9,8 +9,10 @@ namespace CharacterWeaponFramework
         public NullEffect() : base("Null Effect")
         {}
 
-        public override void CreateEffect(CharacterData target)
-        {}
+        public override IEffect CreateEffect(CharacterData target)
+        {
+            return new NullEffect();
+        }
 
     }
 }
