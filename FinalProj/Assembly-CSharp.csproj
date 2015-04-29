@@ -114,6 +114,16 @@
      <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
      <Compile Include="Assets\DnD_Sandbox\Movement.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
+     <Compile Include="Assets\Inventory_burg\Armor.cs" />
+     <Compile Include="Assets\Inventory_burg\Chest.cs" />
+     <Compile Include="Assets\Inventory_burg\DamageType.cs" />
+     <Compile Include="Assets\Inventory_burg\EquipmentSlot.cs" />
+     <Compile Include="Assets\Inventory_burg\GUI_Manager.cs" />
+     <Compile Include="Assets\Inventory_burg\Item.cs" />
+     <Compile Include="Assets\Inventory_burg\ItemGenerator.cs" />
+     <Compile Include="Assets\Inventory_burg\ItemType.cs" />
+     <Compile Include="Assets\Inventory_burg\Player.cs" />
+     <Compile Include="Assets\Inventory_burg\Weapon.cs" />
      <Compile Include="Assets\Inventory_new\Scripts\Inventory.cs" />
      <Compile Include="Assets\Inventory_new\Scripts\Item.cs" />
      <Compile Include="Assets\Inventory_new\Scripts\ItemDatabase.cs" />
