@@ -12,8 +12,6 @@ namespace CharacterWeaponFramework
     public class Group : MonoBehaviour
     {
         [SerializeField]
-        private List<ThirdPersonCharacter> _groupMembersThirdPersonCharacter;
-        [SerializeField]
         private List<CharacterData> _groupMemberCharacterData;
         [SerializeField]
         private List<GameObject> _GroupMemberGameObjects;
@@ -24,12 +22,6 @@ namespace CharacterWeaponFramework
         public GameObject _DefaultGroupMembers;
         //public GUIText _GroupMembersText;
         public Vector3 avgOfGroup;
-        
-
-        public List<ThirdPersonCharacter> GroupMembersThirdPersonCharacter
-        {
-            get { return _groupMembersThirdPersonCharacter; }
-        }
 
         public List<CharacterData> GroupMembersCharacterData
         {
@@ -40,7 +32,6 @@ namespace CharacterWeaponFramework
         {
             Debug.Log("Group Created");
             _GroupMemberGameObjects = new List<GameObject>();
-            _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _groupMemberCharacterData = new List<CharacterData>();
             avgOfGroup = new Vector3();
         }
@@ -48,7 +39,6 @@ namespace CharacterWeaponFramework
         void OnLevelWasLoaded()
         {
             //clean up these on load since they get repopulated in LoadPlayerGroup
-            _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _groupMemberCharacterData = new List<CharacterData>();
             avgOfGroup = new Vector3();
 
@@ -81,13 +71,6 @@ namespace CharacterWeaponFramework
                 CharacterData temp = null;
                 temp = (CharacterData)t;
                 GameStateInfo.PlayerGroupData._groupMemberCharacterData.Add(temp);
-
-                //store the ThirdPersonCharacter script Components
-                t = newGO.GetComponent("ThirdPersonCharacter");
-                ThirdPersonCharacter temp2 = null;
-                temp2 = (ThirdPersonCharacter)t;
-                GameStateInfo.PlayerGroupData._groupMembersThirdPersonCharacter.Add(temp2);
-
             }
         }
 
