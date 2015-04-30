@@ -26,9 +26,14 @@ public class Item
         itemName = name;
         itemID = id;
         itemDesc = desc;
+        itemIcon = Resources.Load<Texture2D>(name);
         itemPower = power;
         itemSpeed = speed;
         itemType = type;
+    }
+    public Item()
+    { 
+    
     }
     
 }

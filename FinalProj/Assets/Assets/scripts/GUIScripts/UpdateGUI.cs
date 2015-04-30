@@ -5,52 +5,43 @@ using CharacterWeaponFramework;
 using System.Collections.Generic;
 using System.Text;
 
-public class UpdateGUI : MonoBehaviour 
+namespace GUIScripts
 {
-    [SerializeField]
-    private Group _playerGroup;
-    
-	// Use this for initialization
-	void Start () 
+    public class UpdateGUI : MonoBehaviour
     {
-	    
-	}
+        [SerializeField]
+        private Group _playerGroup;
 
-    void OnLevelWasLoaded()
-    {
-        _playerGroup = GameStateInfo._PlayerGroupData;
+
+        void OnLevelWasLoaded()
+        {
+            _playerGroup = GameStateInfo.PlayerGroupData;
+        }
+
+        // Update is called once per frame
+        void LateUpdate()
+        {
+            Canvas can = this.GetComponentInChildren<Canvas>();
+            Text text = (Text)can.GetComponentInChildren<Text>();
+            List<CharacterData> charData = _playerGroup.GroupMembersCharacterData;
+            Vector3 avgOfGroup = _playerGroup.avgOfGroup;
+
+            StringBuilder s = new StringBuilder();
+            int i = 0;
+            for (i = 0; i < charData.Count; i++)
+            {
+                s.Append(charData[i].Name + ",");
+                s.Append(" HP:" + charData[i].CurHP.ToString("F0") + "/" + charData[i].MaxHP);
+                s.Append(" MP:" + charData[i].CurMP.ToString("F0") + "/" + charData[i].MaxMP);
+                s.Append(" Stamina:" + charData[i].CurStamina.ToString("F0") + "/" + charData[i].MaxStamina);
+                s.Append(" Alive:" + charData[i].Alive);
+                s.Append("\n");
+
+            }
+
+            text.text = s.ToString();
+
+        }
     }
-	
-	// Update is called once per frame
-	void LateUpdate () 
-    {
-        Canvas can = this.GetComponentInChildren<Canvas>();
-        Text text = (Text)can.GetComponentInChildren<Text>();
-        List<CharacterData> charData = _playerGroup.GroupMembersCharacterData;
-        Vector3 avgOfGroup = _playerGroup.avgOfGroup;
-
-        StringBuilder s = new StringBuilder();
-        int i = 0;
-        for (i = 0; i < charData.Count; i++)
-        {
-            /*t = _GroupMembers[i].GetComponent("CharacterData");
-            dat = (CharacterData)t;*/
-            s.Append(charData[i].Name + ", ");
-
-        }
-        s.Append("\n");
-
-        //avgOfGroup = new Vector3(0f, 0f, 0f);
-        for (i = 0; i < charData.Count; i++)
-        {
-            /*t = _GroupMembers[i].GetComponent("CharacterData");
-            dat = (CharacterData)t;*/
-            s.Append(charData[i].Position.ToString() + ", ");
-        }
-        //avgOfGroup /= charData.Count;
-
-        s.Append("\nAvgPosOfGroup ");
-        s.Append(avgOfGroup.ToString());
-        text.text = s.ToString();
-	}
 }
+

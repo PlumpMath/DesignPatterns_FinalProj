@@ -36,7 +36,6 @@ namespace CharacterWeaponFramework
             get { return _groupMemberCharacterData; }
         }
 
-
         public Group()
         {
             Debug.Log("Group Created");
@@ -51,34 +50,29 @@ namespace CharacterWeaponFramework
             //clean up these on load since they get repopulated in LoadPlayerGroup
             _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _groupMemberCharacterData = new List<CharacterData>();
+            avgOfGroup = new Vector3();
 
             LoadPlayerGroup();
         }
 
-        void Start()
-        {
-            
-        }
-
-
         private void LoadPlayerGroup()
         {
             int i = 0;
-            for(i=0;i<GameStateInfo._PlayerGroupData._GroupMemberGameObjects.Count;i++)
+            for(i=0;i<GameStateInfo.PlayerGroupData._GroupMemberGameObjects.Count;i++)
             {
                 UnityEngine.Object tmp = null;
-                tmp = Instantiate(GameStateInfo._PlayerGroupData._GroupMemberGameObjects[i], new Vector3(0f, 0f, 0f), new Quaternion());
+                tmp = Instantiate(GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i], new Vector3(0f, 0f, 0f), new Quaternion());
                 GameObject newGO = null;
                 newGO = (GameObject)tmp;
 
-                GameStateInfo._PlayerGroupData._GroupMemberGameObjects[i] = newGO;
+                GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i] = newGO;
 
                 //set the target for any AI characters to the member in front of them in the group
                 AICharacterControl AI = null;
                 AI = newGO.GetComponent<AICharacterControl>();
-                if (AI != null && GameStateInfo._PlayerGroupData._GroupMemberGameObjects.Count > 0)
+                if (AI != null && GameStateInfo.PlayerGroupData._GroupMemberGameObjects.Count > 0)
                 {
-                    AI.target = GameStateInfo._PlayerGroupData._GroupMemberGameObjects[i - 1];
+                    AI.target = GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i - 1];
                 }
 
                 //store the CharacterData script Components
@@ -86,13 +80,13 @@ namespace CharacterWeaponFramework
                 t = newGO.GetComponent("CharacterData");
                 CharacterData temp = null;
                 temp = (CharacterData)t;
-                GameStateInfo._PlayerGroupData._groupMemberCharacterData.Add(temp);
+                GameStateInfo.PlayerGroupData._groupMemberCharacterData.Add(temp);
 
                 //store the ThirdPersonCharacter script Components
                 t = newGO.GetComponent("ThirdPersonCharacter");
                 ThirdPersonCharacter temp2 = null;
                 temp2 = (ThirdPersonCharacter)t;
-                GameStateInfo._PlayerGroupData._groupMembersThirdPersonCharacter.Add(temp2);
+                GameStateInfo.PlayerGroupData._groupMembersThirdPersonCharacter.Add(temp2);
 
             }
         }
@@ -120,18 +114,16 @@ namespace CharacterWeaponFramework
 
         void Update()
         {
-            if(Application.loadedLevelName != "CharacterAddScene")
+            int i = 0;
+            avgOfGroup = new Vector3(0f, 0f, 0f);
+            for (i = 0; i < _groupMemberCharacterData.Count; i++)
             {
-                int i = 0;
-                avgOfGroup = new Vector3(0f, 0f, 0f);
-                for (i = 0; i < _groupMemberCharacterData.Count; i++)
-                {
-                    /*t = _GroupMembers[i].GetComponent("CharacterData");
-                    dat = (CharacterData)t;*/
-                    avgOfGroup += _groupMemberCharacterData[i].Position;
-                }
-                avgOfGroup /= _groupMemberCharacterData.Count;
+                /*t = _GroupMembers[i].GetComponent("CharacterData");
+                dat = (CharacterData)t;*/
+                avgOfGroup += _groupMemberCharacterData[i].Position;
             }
+            avgOfGroup /= _groupMemberCharacterData.Count;
+
         }
     }
 }

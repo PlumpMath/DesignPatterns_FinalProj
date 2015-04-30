@@ -118,12 +118,7 @@ public class PlayerCamera : MonoBehaviour
 
                 transform.LookAt(player);
                 
-            }
-                
-            
-
-
-            Debug.Log("angle: " + Vector3.Angle(transform.forward, player.forward));
+            }                                     
         }
         
 

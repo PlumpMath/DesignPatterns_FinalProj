@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour {
     void OnLevelWasLoaded()
     {
         offset = transform.position;
-        _playerGroup = GameStateInfo._PlayerGroupData;
+        _playerGroup = GameStateInfo.PlayerGroupData;
     }
 
     // Update is called once per frame

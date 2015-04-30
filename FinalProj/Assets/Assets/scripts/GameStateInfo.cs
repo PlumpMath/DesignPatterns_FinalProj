@@ -4,9 +4,14 @@ using CharacterWeaponFramework;
 
 public class GameStateInfo : MonoBehaviour 
 {
-    public static Group _PlayerGroupData;
+    [SerializeField]
+    private static Group _PlayerGroupData;
     public GameObject _player;
 
+    public static Group PlayerGroupData
+    {
+        get { return _PlayerGroupData; }
+    }
 
 	// Use this for initialization
 	void Start () 
