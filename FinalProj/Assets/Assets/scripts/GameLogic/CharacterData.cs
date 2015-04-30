@@ -168,7 +168,7 @@ namespace CharacterWeaponFramework
         void Update()
         {
             _position = this.gameObject.transform.position;
-            //Debug.Log("_AppliedEffects:" + _AppliedEffects.ToString() + "\nCount:" + _AppliedEffects.Count.ToString());
+            
             int i = 0;
             for(i=0;i<_AppliedEffects.Count;i++)
             {
@@ -182,21 +182,7 @@ namespace CharacterWeaponFramework
 
         public bool attack(CharacterData target)
         {
-            float temp = UnityEngine.Random.value;
-            //the character uses up stamina and mana even if the attack misses
-            _curMP = _curMP - _weapon.ManaCost;
-            _curStamina = _curStamina - _weapon.StaminaCost;
-            //if the characters chance to hit and the weapons chance to hit and both less than or equal to a randomly determined value
-            //the attack lands
-            if(_chanceToHit <= temp && _weapon.ChanceToHit <= temp)
-            {
-                //generate a random number between min and max damage of this characters weapon;
-                double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamge - target.Weapon.MinDamage) + target.Weapon.MinDamage;
-                target.CurHP = target.CurHP - dmg;
-
-                return true;
-            }
-            return false;
+            return _weapon.attack(this, target);
         }
 
         public string Name

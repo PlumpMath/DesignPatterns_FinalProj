@@ -46,7 +46,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("EffectNameString already set!");
+                    Debug.LogWarning("InternalNameString already set!");
                 }
             }
         }

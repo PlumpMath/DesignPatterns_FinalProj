@@ -14,9 +14,6 @@ namespace CharacterWeaponFramework
         private float _Lifetime;
         private CharacterData _target;
         private Timer Tim;
-        
-        [SerializeField]
-        private Button but = null;
 
         protected TimedEffect(string name, CharacterData target, float lifetime)
         {

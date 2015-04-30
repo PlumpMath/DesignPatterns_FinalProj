@@ -4,7 +4,7 @@ using System;
 
 namespace CharacterWeaponFramework
 {
-    public abstract class InstantEffect : MonoBehaviour, IEffect
+    public abstract class InstantEffect : IEffect
     {
         private string _EffectName;
 
@@ -12,6 +12,9 @@ namespace CharacterWeaponFramework
         {
             _EffectName = name;
         }
+
+        protected InstantEffect()
+        {}
 
         public string EffectName
         {

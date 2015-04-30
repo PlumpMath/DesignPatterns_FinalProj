@@ -14,11 +14,13 @@ namespace CharacterWeaponFramework
             _EffectList = new List<Effects>();
 
             //Add effects to the list of effects in the game here
-            _EffectList.Add(new Effects(new PoisonEffect(), "PoisonEffect","Poison Effect"));
-            _EffectList.Add(new Effects(new HealEffect()  , "HealEffect"  ,"Heal Effect"));
+            _EffectList.Add(new Effects(new PoisonEffect()      , "PoisonEffect"        ,"Poison Effect"));
+            _EffectList.Add(new Effects(new HealEffect()        , "HealEffect"          ,"Heal Effect"));
+            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect"));
 
 
         }
+
 
         public IEffect CreateEffect(string eff,CharacterData target)
         {

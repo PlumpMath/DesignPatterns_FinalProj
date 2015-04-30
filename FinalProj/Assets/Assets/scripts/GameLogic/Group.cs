@@ -50,6 +50,7 @@ namespace CharacterWeaponFramework
             //clean up these on load since they get repopulated in LoadPlayerGroup
             _groupMembersThirdPersonCharacter = new List<ThirdPersonCharacter>();
             _groupMemberCharacterData = new List<CharacterData>();
+            avgOfGroup = new Vector3();
 
             LoadPlayerGroup();
         }
@@ -113,20 +114,16 @@ namespace CharacterWeaponFramework
 
         void Update()
         {
-            if(Application.loadedLevelName != "CharacterAddScene")
+            int i = 0;
+            avgOfGroup = new Vector3(0f, 0f, 0f);
+            for (i = 0; i < _groupMemberCharacterData.Count; i++)
             {
-                int i = 0;
-                avgOfGroup = new Vector3(0f, 0f, 0f);
-                for (i = 0; i < _groupMemberCharacterData.Count; i++)
-                {
-                    /*t = _GroupMembers[i].GetComponent("CharacterData");
-                    dat = (CharacterData)t;*/
-                    avgOfGroup += _groupMemberCharacterData[i].Position;
-                }
-                avgOfGroup /= _groupMemberCharacterData.Count;
-
-                
+                /*t = _GroupMembers[i].GetComponent("CharacterData");
+                dat = (CharacterData)t;*/
+                avgOfGroup += _groupMemberCharacterData[i].Position;
             }
+            avgOfGroup /= _groupMemberCharacterData.Count;
+
         }
     }
 }

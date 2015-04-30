@@ -99,13 +99,13 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\HealEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\NullEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\PoisonEffect.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\TestInstantEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\TestTimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\EffectFactory.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\IEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\InstantEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
-     <Compile Include="Assets\Assets\scripts\GameLogic\Melee.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
      <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
