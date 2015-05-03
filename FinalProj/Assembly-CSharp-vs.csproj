@@ -94,6 +94,8 @@
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\PanelHandler.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\StartGame.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\TargetButtonInfo.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\TargetsPanelHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\UpdateGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterData.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\HealEffect.cs" />
@@ -138,7 +140,7 @@
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Users/James/Desktop/Files/Programming/UnityProjects/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -7,6 +7,8 @@ namespace GUIScripts
 {
     public class PanelHandler : MonoBehaviour
     {
+
+
         public void TogglePanel(GameObject panel)
         {
             if (panel.activeInHierarchy == false)
