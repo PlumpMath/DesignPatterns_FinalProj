@@ -7,6 +7,7 @@ public class GameStateInfo : MonoBehaviour
     [SerializeField]
     private static Group _PlayerGroupData;
     public GameObject _player;
+    public static EffectFactory EffFact = new EffectFactory();
 
     public static Group PlayerGroupData
     {

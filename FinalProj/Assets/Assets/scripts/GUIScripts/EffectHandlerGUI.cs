@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using CharacterWeaponFramework;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace GUIScripts
 {
@@ -13,7 +15,6 @@ namespace GUIScripts
         private GameObject _EffectButton;
         [SerializeField]
         private GameObject _TargetsPanel;
-        private EffectFactory _EffFact;
         private List<Button> _Buttons;
 
         private const int ButtonHeight = 30;
@@ -21,11 +22,13 @@ namespace GUIScripts
         private const int MaxPanelHeight = ButtonHeight * 10;
 
         
-
         void Awake()
         {
             UnityEngine.Object.DontDestroyOnLoad(this);
-            _EffFact = new EffectFactory();
+        }
+
+        void Start()
+        {
             _Buttons = new List<Button>();
 
             int numButtons = ConstructButtons();
@@ -37,11 +40,10 @@ namespace GUIScripts
             int i = 0;
 
             TargetsPanelHandlerGUI targetsPanel = _TargetsPanel.GetComponent<TargetsPanelHandlerGUI>();
-
-            for (i = 0; i < _EffFact.FactSize; i++)
+            for (i = 0; i < GameStateInfo.EffFact.FactSize; i++)
             {
                 GameObject butObj = Instantiate<GameObject>(_EffectButton);
-
+                
                 butObj.transform.SetParent(this.gameObject.transform, false);
                 RectTransform butTrans = butObj.GetComponent<RectTransform>();
                 butTrans.anchoredPosition3D = new Vector3(ButtonWidth / 2.0f, -(i * ButtonHeight) - (ButtonHeight / 2.0f), 0);
@@ -49,18 +51,15 @@ namespace GUIScripts
 
                 EffectButtonInfo info = butObj.GetComponent<EffectButtonInfo>();
                 Button but = butObj.GetComponent<Button>();
-                info.DisplayString = _EffFact.GetDisplayString(i);
-                info.InternalNameString = _EffFact.GetInternalName(i);
+                info.DisplayString = GameStateInfo.EffFact.GetDisplayString(i);
+                info.InternalNameString = GameStateInfo.EffFact.GetInternalName(i);
                 //GameObject TargetButtonsPanel = GameObject.FindGameObjectWithTag("TargetButtonsPanel");
                 but.onClick.AddListener(
                     () =>
                     {
-                        
                         targetsPanel.AddEffectToButtons(info.InternalNameString); 
                         
                     });
-
-                
 
                 info.Btn = but;
 
