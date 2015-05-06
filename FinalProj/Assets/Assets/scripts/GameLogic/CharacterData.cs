@@ -6,6 +6,7 @@ using System;
 
 namespace CharacterWeaponFramework
 {
+    
     public class CharacterData : MonoBehaviour
     {
         [SerializeField]

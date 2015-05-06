@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using CharacterWeaponFramework;
 using UnityEngine.UI;
+using System;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace GUIScripts
 {
@@ -10,43 +13,71 @@ namespace GUIScripts
     {
         [SerializeField]
         private GameObject _EffectButton;
-        private EffectFactory _EffFact;
+        [SerializeField]
+        private GameObject _TargetsPanel;
         private List<Button> _Buttons;
 
         private const int ButtonHeight = 30;
+        private const int ButtonWidth = 160;
+        private const int MaxPanelHeight = ButtonHeight * 10;
 
-        // Use this for initialization
+        
+        void Awake()
+        {
+            UnityEngine.Object.DontDestroyOnLoad(this);
+        }
+
         void Start()
         {
-            _EffFact = new EffectFactory();
             _Buttons = new List<Button>();
 
-            //construct the buttons that can be used to apply effects
+            int numButtons = ConstructButtons();
+            ResizePanelToButtons(numButtons);
+        }
+
+        private int ConstructButtons()
+        {
             int i = 0;
-            for(i=0;i<_EffFact.FactSize;i++)
+
+            TargetsPanelHandlerGUI targetsPanel = _TargetsPanel.GetComponent<TargetsPanelHandlerGUI>();
+            for (i = 0; i < GameStateInfo.EffFact.FactSize; i++)
             {
                 GameObject butObj = Instantiate<GameObject>(_EffectButton);
-                butObj.transform.SetParent(this.gameObject.transform,false);
-                butObj.transform.localPosition -= new Vector3(0, ButtonHeight * i, 0);
+                
+                butObj.transform.SetParent(this.gameObject.transform, false);
+                RectTransform butTrans = butObj.GetComponent<RectTransform>();
+                butTrans.anchoredPosition3D = new Vector3(ButtonWidth / 2.0f, -(i * ButtonHeight) - (ButtonHeight / 2.0f), 0);
+
+
                 EffectButtonInfo info = butObj.GetComponent<EffectButtonInfo>();
                 Button but = butObj.GetComponent<Button>();
-                info.DisplayString = _EffFact.GetDisplayString(i);
-                info.InternalNameString = _EffFact.GetInternalName(i);
+                info.DisplayString = GameStateInfo.EffFact.GetDisplayString(i);
+                info.InternalNameString = GameStateInfo.EffFact.GetInternalName(i);
+                //GameObject TargetButtonsPanel = GameObject.FindGameObjectWithTag("TargetButtonsPanel");
                 but.onClick.AddListener(
                     () =>
                     {
-                        _EffFact.CreateEffect(info.InternalNameString, GameStateInfo.PlayerGroupData.GroupMembersCharacterData[0]);
+                        targetsPanel.AddEffectToButtons(info.InternalNameString); 
+                        
                     });
 
                 info.Btn = but;
 
                 _Buttons.Add(but);
             }
+
+            return i;
         }
 
-        void Awake()
+        private void ResizePanelToButtons(int numButtons)
         {
-            UnityEngine.Object.DontDestroyOnLoad(this);
+            float tmp = (2 * ButtonWidth) - (ButtonWidth / 2.0f);
+            RectTransform trans = this.GetComponent<RectTransform>();
+            trans.sizeDelta = new Vector2(ButtonWidth, (numButtons * ButtonHeight));
+
+            float temp = numButtons * ButtonHeight / 2;
+
+            trans.anchoredPosition3D = new Vector3(tmp, -temp, 0);
         }
 
     }

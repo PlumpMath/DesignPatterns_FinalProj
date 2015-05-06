@@ -14,9 +14,10 @@ namespace CharacterWeaponFramework
             _EffectList = new List<Effects>();
 
             //Add effects to the list of effects in the game here
-            _EffectList.Add(new Effects(new PoisonEffect()      , "PoisonEffect"        ,"Poison Effect"));
-            _EffectList.Add(new Effects(new HealEffect()        , "HealEffect"          ,"Heal Effect"));
-            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect"));
+            _EffectList.Add(new Effects(new NullEffect()        , "NullEffect"          ,"Null Effect", false));
+            _EffectList.Add(new Effects(new PoisonEffect()      , "PoisonEffect"        ,"Poison Effect", true));
+            _EffectList.Add(new Effects(new HealEffect()        , "HealEffect"          ,"Heal Effect", true));
+            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect", true));
 
 
         }
@@ -67,12 +68,14 @@ namespace CharacterWeaponFramework
             private IEffect _effect;
             private string _internalName;
             private string _displayName;
+            private bool _display;
 
-            public Effects(IEffect eff, string internalName, string displayName)
+            public Effects(IEffect eff, string internalName, string displayName, bool display)
             {
                 _effect = eff;
                 _internalName = internalName;
                 _displayName = displayName;
+                _display = display;
             }
 
             public IEffect Effect
@@ -88,6 +91,11 @@ namespace CharacterWeaponFramework
             public string DisplayName
             {
                 get { return _displayName; }
+            }
+
+            public bool Display
+            {
+                get { return _display; }
             }
 
         }

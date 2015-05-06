@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using CharacterWeaponFramework;
+using UnityEngine.UI;
 
 namespace GUIScripts
 {
     public class PanelHandler : MonoBehaviour
     {
+        
+
         public void TogglePanel(GameObject panel)
         {
-            if (panel.activeInHierarchy == false)
+            if(panel.activeInHierarchy == false)
             {
                 panel.SetActive(true);
             }
@@ -18,7 +19,7 @@ namespace GUIScripts
                 panel.SetActive(false);
             }
         }
-
         
     }
 }
+

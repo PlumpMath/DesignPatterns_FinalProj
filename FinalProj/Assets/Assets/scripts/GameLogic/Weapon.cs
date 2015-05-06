@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CharacterWeaponFramework
 {
-    public abstract class Weapon : MonoBehaviour
+    public abstract class Weapon 
     {
         [SerializeField]
         private string _name;
@@ -27,6 +27,7 @@ namespace CharacterWeaponFramework
         public double MinDamage
         {
             get { return _MinDamage; }
+
         }
 
         public double MaxDamge

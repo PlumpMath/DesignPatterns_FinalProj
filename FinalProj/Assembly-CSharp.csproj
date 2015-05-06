@@ -94,6 +94,8 @@
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\PanelHandler.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\StartGame.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\TargetButtonInfo.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\TargetsPanelHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\UpdateGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterData.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\HealEffect.cs" />
@@ -106,13 +108,13 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\InstantEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
      <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
      <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
-     <Compile Include="Assets\DnD_Sandbox\Movement.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
      <Compile Include="Assets\Inventory_burg\Armor.cs" />
      <Compile Include="Assets\Inventory_burg\Chest.cs" />
