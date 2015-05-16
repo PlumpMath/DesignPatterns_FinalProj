@@ -17,6 +17,7 @@ public class SpawnerTest : MonoBehaviour
     private int _SpawnCap;
     private List<GameObject> _ThingsSpawned;
     
+    
 	// Use this for initialization
 	void Start () 
     {

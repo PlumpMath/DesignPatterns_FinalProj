@@ -109,7 +109,9 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\InstantEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\LeveledList.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\Spawners.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
      <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />

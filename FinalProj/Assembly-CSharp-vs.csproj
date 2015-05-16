@@ -109,7 +109,9 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\InstantEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\LeveledList.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\Spawners.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
      <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
@@ -141,7 +143,7 @@
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Users/James/Desktop/Files/Programming/UnityProjects/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
