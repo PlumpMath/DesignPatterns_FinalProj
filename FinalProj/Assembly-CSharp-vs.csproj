@@ -90,6 +90,7 @@
      <Compile Include="Assets\Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\Assets\scripts\CameraController.cs" />
+     <Compile Include="Assets\Assets\scripts\FSM.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectButtonInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\JessStartGame.cs" />
@@ -143,7 +144,7 @@
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/Users/James/Desktop/Files/Programming/UnityProjects/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

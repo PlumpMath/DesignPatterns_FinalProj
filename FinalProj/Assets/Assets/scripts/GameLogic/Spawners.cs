@@ -21,6 +21,8 @@ namespace CharacterWeaponFramework
         [SerializeField]
         private GameObject _GroupPreFab;
         private Group _SpawnedGroup;
+        [SerializeField]
+        private GameObject _PositionMarker;
 
 
         // Use this for initialization
@@ -43,7 +45,41 @@ namespace CharacterWeaponFramework
                 AddExistingGroupMembersToLists(_SpawnedGroup);
             }
             //fill out the remaining spawn cap with things from the Spawn Tags list
-            PopulateGroupFromSpawnTags(_SpawnedGroup);
+            PopulateGroupFromLeveledList(_SpawnedGroup);
+            SetMovementTargetsOfGroup(_SpawnedGroup);
+        }
+
+        private void SetMovementTargetsOfGroup(Group g)
+        {
+            SetGroupLeaderTarget(g);
+            int i;
+            GameObject cur;
+            AICharacterControl control;
+            for(i = 1;i<g.GroupMembersGameObjects.Count;i++)
+            {
+                cur = g.GroupMembersGameObjects[i];
+                control = cur.GetComponent<AICharacterControl>();
+                control.target = g.GroupMembersGameObjects[i - 1];
+                
+            }
+        }
+
+        private void SetGroupLeaderTarget(Group g)
+        {
+            GameObject leader = g.GroupMembersGameObjects[0];
+            AICharacterControl control = leader.GetComponent<AICharacterControl>();
+            GameObject target = CreatePositionMarkerForLeader();
+            control.SetTarget(target.transform);
+        }
+
+        private GameObject CreatePositionMarkerForLeader()
+        {
+            GameObject marker = Instantiate(_PositionMarker);
+            System.Random rand = new System.Random();
+            Vector3 randVect = UnityEngine.Random.insideUnitSphere * rand.Next(100);
+            randVect.y = 0;
+            marker.transform.position = randVect;
+            return marker;
         }
 
         private void AddExistingGroupMembersToLists(Group g)
@@ -54,7 +90,7 @@ namespace CharacterWeaponFramework
             }
         }
 
-        private void PopulateGroupFromSpawnTags(Group g)
+        private void PopulateGroupFromLeveledList(Group g)
         {
             while(_ThingsSpawned.Count < _SpawnCap)
             {

@@ -15,6 +15,8 @@ namespace CharacterWeaponFramework
         private Weapon _weapon;
         [SerializeField]
         private Vector3 _position;
+        [SerializeField]
+        private bool _enemy;
 
         #region CharacaterStats
         [SerializeField]
@@ -218,6 +220,11 @@ namespace CharacterWeaponFramework
             {
                 _position = value;
             }
+        }
+
+        public bool Enemy
+        {
+            get { return _enemy; }
         }
 
 

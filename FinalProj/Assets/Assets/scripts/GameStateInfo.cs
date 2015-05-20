@@ -9,6 +9,7 @@ public class GameStateInfo : MonoBehaviour
     public GameObject _player;
     public static EffectFactory EffFact = new EffectFactory();
 
+
     public static Group PlayerGroupData
     {
         get { return _PlayerGroupData; }

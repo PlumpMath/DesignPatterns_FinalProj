@@ -90,6 +90,7 @@
      <Compile Include="Assets\Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Assets\Utility\WaypointProgressTracker.cs" />
      <Compile Include="Assets\Assets\scripts\CameraController.cs" />
+     <Compile Include="Assets\Assets\scripts\FSM.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectButtonInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\EffectHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\JessStartGame.cs" />
