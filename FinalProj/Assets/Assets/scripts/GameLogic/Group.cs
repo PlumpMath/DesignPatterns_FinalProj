@@ -28,6 +28,11 @@ namespace CharacterWeaponFramework
             get { return _groupMemberCharacterData; }
         }
 
+        public List<GameObject> GroupMembersGameObjects
+        {
+            get { return _GroupMemberGameObjects; }
+        }
+
         public Group()
         {
             Debug.Log("Group Created");
