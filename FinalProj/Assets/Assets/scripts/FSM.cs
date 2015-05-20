@@ -8,11 +8,16 @@ namespace FSM
     public enum Transition
     {
         NullTransition = 0,
+        TransitionToMovingToGroupLeaderState = 1,
+        TransitionToStandingStillState = 2,
     }
 
     public enum StateID
     {
         NullStateID = 0,
+        MoveingToGroupLeaderStateID = 1,
+        StandingStillStateID = 2,
+
     }
 
     //Based heavily on http://wiki.unity3d.com/index.php?title=Finite_State_Machine
