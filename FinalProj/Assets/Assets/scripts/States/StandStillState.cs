@@ -8,7 +8,9 @@ namespace CharacterWeaponFramework
     {
 
         public StandStillState()
-        {}
+        {
+            _stateID = StateID.StandingStillStateID;
+        }
 
         public override void Reason(GameObject player, GameObject npc)
         {

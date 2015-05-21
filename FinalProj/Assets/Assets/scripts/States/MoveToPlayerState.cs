@@ -7,7 +7,9 @@ namespace CharacterWeaponFramework
     public class MoveToGroupLeaderState : FSMState
     {
         public MoveToGroupLeaderState()
-        {}
+        {
+            _stateID = StateID.MoveingToGroupLeaderStateID;        
+        }
 
         public override void Reason(GameObject player, GameObject npc)
         {

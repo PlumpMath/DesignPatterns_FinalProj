@@ -71,36 +71,13 @@ namespace CharacterWeaponFramework
         {
             if (target != null )
             {
-                
-               /* float dis = Vector3.Distance(this.transform.position, _transTarget.position);
-                if (dis < _PersonalSpace)
-                {
-                    _moveToTarget = false;
-                }
-                
-                
-                if(dis > _MaxDistanceToLeader)
-                {
-                    _moveToTarget = true;
-                }
-
-                if (_moveToTarget)
-                {
-                    agent.SetDestination(_transTarget.position);
-                    // use the values to move the character
-                    character.Move(agent.desiredVelocity, false, false);
-                }
-                else
-                {
-                    StopMoving();
-                }*/
                 fsm.CurrentState.Reason(target, this.gameObject);
                 fsm.CurrentState.Act(target, this.gameObject);
             }
-            /*else
+            else
             {
-                StopMoving();
-            }*/
+                Debug.LogError("AICharacterControl: target not set.");
+            }
 
         }
 

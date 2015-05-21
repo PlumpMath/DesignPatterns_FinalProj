@@ -17,7 +17,7 @@ namespace CharacterWeaponFramework
             _EffectList.Add(new Effects(new NullEffect()        , "NullEffect"          ,"Null Effect", false));
             _EffectList.Add(new Effects(new PoisonEffect()      , "PoisonEffect"        ,"Poison Effect", true));
             _EffectList.Add(new Effects(new HealEffect()        , "HealEffect"          ,"Heal Effect", true));
-            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect", true));
+            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect", false));
 
 
         }
