@@ -4,8 +4,9 @@ using System;
 using UnityEngine.UI;
 using System.Timers;
 using Globals;
+using CharacterWeaponFramework;
 
-namespace CharacterWeaponFramework
+namespace EffectScripts
 {
     public abstract class TimedEffect : IEffect
     {

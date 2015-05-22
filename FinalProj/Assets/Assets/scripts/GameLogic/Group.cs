@@ -53,21 +53,21 @@ namespace CharacterWeaponFramework
         private void LoadPlayerGroup()
         {
             int i = 0;
-            for(i=0;i<GameStateInfo.PlayerGroupData._GroupMemberGameObjects.Count;i++)
+            for(i=0;i<GlobalGameInfo.PlayerGroupData._GroupMemberGameObjects.Count;i++)
             {
                 UnityEngine.Object tmp = null;
-                tmp = Instantiate(GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i], new Vector3(0f, 0f, 0f), new Quaternion());
+                tmp = Instantiate(GlobalGameInfo.PlayerGroupData._GroupMemberGameObjects[i], new Vector3(0f, 0f, 0f), new Quaternion());
                 GameObject newGO = null;
                 newGO = (GameObject)tmp;
 
-                GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i] = newGO;
+                GlobalGameInfo.PlayerGroupData._GroupMemberGameObjects[i] = newGO;
 
                 //set the target for any AI characters to the member in front of them in the group
                 AICharacterControl AI = null;
                 AI = newGO.GetComponent<AICharacterControl>();
-                if (AI != null && GameStateInfo.PlayerGroupData._GroupMemberGameObjects.Count > 0)
+                if (AI != null && GlobalGameInfo.PlayerGroupData._GroupMemberGameObjects.Count > 0)
                 {
-                    AI.target = GameStateInfo.PlayerGroupData._GroupMemberGameObjects[i - 1];
+                    AI.target = GlobalGameInfo.PlayerGroupData._GroupMemberGameObjects[i - 1];
                 }
 
                 //store the CharacterData script Components
@@ -75,7 +75,7 @@ namespace CharacterWeaponFramework
                 t = newGO.GetComponent("CharacterData");
                 CharacterData temp = null;
                 temp = (CharacterData)t;
-                GameStateInfo.PlayerGroupData._groupMemberCharacterData.Add(temp);
+                GlobalGameInfo.PlayerGroupData._groupMemberCharacterData.Add(temp);
             }
         }
 

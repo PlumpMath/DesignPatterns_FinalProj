@@ -5,6 +5,7 @@ using CharacterWeaponFramework;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Globals;
 
 namespace GUIScripts
 {
@@ -31,7 +32,7 @@ namespace GUIScripts
 
         void Start()
         {
-            _grp = GameStateInfo.PlayerGroupData;
+            _grp = GlobalGameInfo.PlayerGroupData;
             int numButtons = ConstructButtons();
         }
 
@@ -98,7 +99,7 @@ namespace GUIScripts
 
             //Debug.Log("info.TargetNum:" + info.TargetNum);
 
-            GameStateInfo.EffFact.CreateEffect(info.Effect, GameStateInfo.PlayerGroupData.GroupMembersCharacterData[info.TargetNum]);
+            GlobalGameInfo.EffFact.CreateEffect(info.Effect, GlobalGameInfo.PlayerGroupData.GroupMembersCharacterData[info.TargetNum]);
         }
     }
 }

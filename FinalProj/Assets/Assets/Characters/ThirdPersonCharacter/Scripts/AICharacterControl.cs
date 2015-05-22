@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using CharacterWeaponFramework;
+using FSM;
 
 namespace CharacterWeaponFramework
 {
@@ -17,6 +18,17 @@ namespace CharacterWeaponFramework
         public GameObject target; // target to aim for
         private Transform _transTarget;
         private bool _moveToTarget;
+        private FSMSystem fsm;
+
+        public float PersonalSpace
+        {
+            get { return _PersonalSpace; }
+        }
+
+        public float MaxDistanceToLeader
+        {
+            get { return _MaxDistanceToLeader; }
+        }
 
         // Use this for initialization
         private void Start()
@@ -33,42 +45,40 @@ namespace CharacterWeaponFramework
             {
                 _MaxDistanceToLeader = _PersonalSpace + 1;
             }
+            MakeFSM();
+        }
+
+        private void MakeFSM()
+        {
+            MoveToGroupLeaderState follow = new MoveToGroupLeaderState();
+            follow.AddTransition(Transition.TransitionToMovingToGroupLeaderState,StateID.MoveingToGroupLeaderStateID);
+            StandStillState stand = new StandStillState();
+            stand.AddTransition(Transition.TransitionToStandingStillState, StateID.StandingStillStateID);
+
+            fsm = new FSMSystem();
+            fsm.AddState(follow);
+            fsm.AddState(stand);
+
+        }
+
+        public void SetTransition(Transition t)
+        {
+            fsm.PerformTransition(t);
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (_transTarget != null )
+            if (target != null )
             {
-                
-                float dis = Vector3.Distance(this.transform.position, _transTarget.position);
-                if (dis < _PersonalSpace)
-                {
-                    _moveToTarget = false;
-                }
-                
-                
-                if(dis > _MaxDistanceToLeader)
-                {
-                    _moveToTarget = true;
-                }
-
-                if (_moveToTarget)
-                {
-                    agent.SetDestination(_transTarget.position);
-                    // use the values to move the character
-                    character.Move(agent.desiredVelocity, false, false);
-                }
-                else
-                {
-                    StopMoving();
-                }
-                
+                fsm.CurrentState.Reason(target, this.gameObject);
+                fsm.CurrentState.Act(target, this.gameObject);
             }
             else
             {
-                StopMoving();
+                Debug.LogError("AICharacterControl: target not set.");
             }
+
         }
 
         private void StopMoving()
@@ -81,5 +91,7 @@ namespace CharacterWeaponFramework
         {
             this._transTarget = target;
         }
+
+
     }
 }

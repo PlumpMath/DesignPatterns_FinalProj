@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using CharacterWeaponFramework;
-
+using Globals;
 
 namespace GUIScripts
 {
@@ -20,7 +20,7 @@ namespace GUIScripts
         public TargetButtonInfo()
         {
             _targetNum = -1;
-            _grp = GameStateInfo.PlayerGroupData;
+            _grp = GlobalGameInfo.PlayerGroupData;
             _eff = "NullEffect";
         } 
 

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using EffectScripts;
 
 namespace CharacterWeaponFramework
 {
@@ -23,6 +24,11 @@ namespace CharacterWeaponFramework
         private double _StaminaCost;
         [SerializeField]
         private double _ChanceToHit;
+
+        protected Weapon()
+        {
+            _AttackEffect = new NullEffect();
+        }
 
         public double MinDamage
         {
@@ -64,7 +70,7 @@ namespace CharacterWeaponFramework
                 //generate a random number between min and max damage of this characters weapon;
                 double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamge - target.Weapon.MinDamage) + target.Weapon.MinDamage;
                 target.CurHP = target.CurHP - dmg;
-
+                _AttackEffect.CreateEffect(target);
                 return true;
             }
             return false;

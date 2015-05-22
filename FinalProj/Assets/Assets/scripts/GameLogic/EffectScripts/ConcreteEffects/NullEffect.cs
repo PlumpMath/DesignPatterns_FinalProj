@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using CharacterWeaponFramework;
 
-namespace CharacterWeaponFramework
+namespace EffectScripts
 {
     public class NullEffect : InstantEffect
     {

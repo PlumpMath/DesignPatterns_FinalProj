@@ -4,6 +4,7 @@ using System.Collections;
 using CharacterWeaponFramework;
 using System.Collections.Generic;
 using System.Text;
+using Globals;
 
 namespace GUIScripts
 {
@@ -15,7 +16,7 @@ namespace GUIScripts
 
         void OnLevelWasLoaded()
         {
-            _playerGroup = GameStateInfo.PlayerGroupData;
+            _playerGroup = GlobalGameInfo.PlayerGroupData;
         }
 
         // Update is called once per frame
