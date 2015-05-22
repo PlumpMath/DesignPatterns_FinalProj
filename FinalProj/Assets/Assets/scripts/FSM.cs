@@ -10,6 +10,8 @@ namespace FSM
         NullTransition = 0,
         TransitionToMovingToGroupLeaderState = 1,
         TransitionToStandingStillState = 2,
+        TransitionToBattleState = 3,
+        TransitionToNormalState = 4,
     }
 
     public enum StateID
@@ -17,10 +19,12 @@ namespace FSM
         NullStateID = 0,
         MoveingToGroupLeaderStateID = 1,
         StandingStillStateID = 2,
+        BattleStateID = 3,
+        NormalStateID = 4,
 
     }
 
-    //Based heavily on http://wiki.unity3d.com/index.php?title=Finite_State_Machine
+    //From http://wiki.unity3d.com/index.php?title=Finite_State_Machine
     public abstract class FSMState
     {
         protected Dictionary<Transition, StateID> map = new Dictionary<Transition, StateID>();
