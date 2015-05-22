@@ -114,12 +114,12 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Spawners.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
-     <Compile Include="Assets\Assets\scripts\GameStateInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GlobalConsts.cs" />
+     <Compile Include="Assets\Assets\scripts\GlobalGameInfo.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
      <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
-     <Compile Include="Assets\Assets\scripts\States\MoveToPlayerState.cs" />
+     <Compile Include="Assets\Assets\scripts\States\MoveToGroupLeaderState.cs" />
      <Compile Include="Assets\Assets\scripts\States\StandStillState.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
      <Compile Include="Assets\Inventory_burg\Armor.cs" />

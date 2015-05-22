@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CharacterWeaponFramework;
+using Globals;
 
 public class CameraController : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class CameraController : MonoBehaviour {
     void OnLevelWasLoaded()
     {
         offset = transform.position;
-        _playerGroup = GameStateInfo.PlayerGroupData;
+        _playerGroup = GlobalGameInfo.PlayerGroupData;
     }
 
     // Update is called once per frame

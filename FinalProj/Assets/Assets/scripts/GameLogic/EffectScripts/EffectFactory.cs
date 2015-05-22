@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using CharacterWeaponFramework;
 
-namespace CharacterWeaponFramework
+namespace EffectScripts
 {
     public class EffectFactory
     {
