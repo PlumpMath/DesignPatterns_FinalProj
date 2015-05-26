@@ -17,7 +17,6 @@ namespace AI
         private float _MaxDistanceToLeader;
         public GameObject target; // target to aim for
         private Transform _transTarget;
-        private bool _moveToTarget;
         private FSMSystem fsm;
 
         public float PersonalSpace
@@ -86,18 +85,5 @@ namespace AI
             }
 
         }
-
-        private void StopMoving()
-        {
-            // We still need to call the character's move function, but we send zeroed input as the move param.
-            character.Move(Vector3.zero, false, false);
-        }
-
-        public void SetTarget(Transform target)
-        {
-            this._transTarget = target;
-        }
-
-
     }
 }

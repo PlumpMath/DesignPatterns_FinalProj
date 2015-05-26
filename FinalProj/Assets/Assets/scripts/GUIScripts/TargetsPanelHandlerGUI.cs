@@ -13,25 +13,13 @@ namespace GUIScripts
     {
         delegate void AddEffectToButton(BaseEventData baseEvent);
 
-        /*[SerializeField]
-        private GameObject _TargetButton;*/
         private List<GameObject> _Buttons;
         private Group _grp;
-
-        /*public const int ButtonHeight = 30;
-        public const int ButtonWidth = 160;
-        public const int MaxPanelHeight = ButtonHeight * 10;*/
 
         void Awake()
         {
             _Buttons = new List<GameObject>();
         }
-
-        /*void Start()
-        {
-            
-            int numButtons = ConstructButtons();
-        }*/
 
         protected override void Hook1()
         {

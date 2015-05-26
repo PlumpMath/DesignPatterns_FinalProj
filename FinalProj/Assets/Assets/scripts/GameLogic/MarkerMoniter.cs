@@ -63,7 +63,6 @@ namespace AI
             fsm = new FSMSystem();
             fsm.AddState(teleport);
             fsm.AddState(nothing);
-
         }
 
         // Update is called once per frame
