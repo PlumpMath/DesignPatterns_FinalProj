@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FSM;
+using AI;
 
 namespace CharacterWeaponFramework
 {

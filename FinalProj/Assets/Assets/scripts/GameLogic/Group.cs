@@ -6,6 +6,7 @@ using System.Text;
 using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.Characters;
+using AI;
 
 namespace CharacterWeaponFramework
 {
@@ -35,7 +36,7 @@ namespace CharacterWeaponFramework
 
         public Group()
         {
-            Debug.Log("Group Created");
+            Debug.Log("Group: Group Created");
             _GroupMemberGameObjects = new List<GameObject>();
             _groupMemberCharacterData = new List<CharacterData>();
             avgOfGroup = new Vector3();

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+//From http://wiki.unity3d.com/index.php?title=Finite_State_Machine
 namespace FSM
 {
     public enum Transition
@@ -12,6 +13,9 @@ namespace FSM
         TransitionToStandingStillState = 2,
         TransitionToBattleState = 3,
         TransitionToNormalState = 4,
+        TransitionToTeleportMarkerState = 5,
+        TransitionToDoNothingState = 6,
+
     }
 
     public enum StateID
@@ -21,10 +25,11 @@ namespace FSM
         StandingStillStateID = 2,
         BattleStateID = 3,
         NormalStateID = 4,
+        TeleportStateID = 5,
+        DoNothingStateID = 6,
 
     }
 
-    //From http://wiki.unity3d.com/index.php?title=Finite_State_Machine
     public abstract class FSMState
     {
         protected Dictionary<Transition, StateID> map = new Dictionary<Transition, StateID>();
@@ -38,19 +43,19 @@ namespace FSM
         {
             if(trans == Transition.NullTransition)
             {
-                Debug.LogError("NullTransition not allowed");
+                Debug.LogError("FSM: NullTransition not allowed");
                 return;
             }
 
             if(id == StateID.NullStateID)
             {
-                Debug.LogError("NullStateID not allowed");
+                Debug.LogError("FSM: NullStateID not allowed");
                 return;
             }
 
             if(map.ContainsKey(trans))
             {
-                Debug.LogError("Already in dictonary");
+                Debug.LogError("FSM: Already in dictonary");
                 return;
             }
 
@@ -61,7 +66,7 @@ namespace FSM
         {
             if(trans == Transition.NullTransition)
             {
-                Debug.LogError("NullTransition deletion not allowed");
+                Debug.LogError("FSM: NullTransition deletion not allowed");
                 return;
             }
 
@@ -71,7 +76,7 @@ namespace FSM
                 return;
             }
 
-            Debug.LogError("Transition not in transition dictionary");
+            Debug.LogError("FSM: Transition not in transition dictionary");
         }
 
         public StateID GetOutputState(Transition trans)
@@ -92,7 +97,7 @@ namespace FSM
         public abstract void Act(GameObject player, GameObject npc);
     }
 
-    public class FSMSystem
+    public class FSMSystem: IEnumerable
     {
         private List<FSMState> _states;
 
@@ -116,7 +121,7 @@ namespace FSM
         {
             if(s == null)
             {
-                Debug.LogError("Null reference not allowed");
+                Debug.LogError("FSM: Null reference not allowed");
                 return;
             }
 
@@ -132,7 +137,7 @@ namespace FSM
             {
                 if(state.ID == s.ID)
                 {
-                    Debug.LogError("State already added");
+                    Debug.LogError("FSM: State already added");
                     return;
                 }
                 
@@ -145,7 +150,7 @@ namespace FSM
         {
             if(id == StateID.NullStateID)
             {
-                Debug.LogError("Can't remove null state");
+                Debug.LogError("FSM: Can't remove null state");
                 return;
             }
 
@@ -158,21 +163,21 @@ namespace FSM
                 }
             }
 
-            Debug.LogError("State can't be deleted because it doesn't exsist");
+            Debug.LogError("FSM: State can't be deleted because it doesn't exsist");
         }
 
         public void PerformTransition(Transition trans)
         {
             if(trans == Transition.NullTransition)
             {
-                Debug.LogError("Null transition can't be used");
+                Debug.LogError("FSM: Null transition can't be used");
                 return;
             }
 
             StateID id = _currentState.GetOutputState(trans);
             if(id == StateID.NullStateID)
             {
-                Debug.LogError("No target to transition to");
+                Debug.LogError("FSM: No target to transition to");
                 return;
             }
 
@@ -189,6 +194,16 @@ namespace FSM
                 }
             }
 
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return _states.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+           return GetEnumerator();
         }
     }
 }

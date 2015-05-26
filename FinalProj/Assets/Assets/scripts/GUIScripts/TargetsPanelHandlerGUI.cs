@@ -9,41 +9,30 @@ using Globals;
 
 namespace GUIScripts
 {
-    public class TargetsPanelHandlerGUI : MonoBehaviour
+    public class TargetsPanelHandlerGUI : TemplatePanelHandlerGUI
     {
         delegate void AddEffectToButton(BaseEventData baseEvent);
 
-        [SerializeField]
-        private GameObject _TargetButton;
         private List<GameObject> _Buttons;
         private Group _grp;
 
-        private const int ButtonHeight = 30;
-        private const int ButtonWidth = 160;
-        private const int MaxPanelHeight = ButtonHeight * 10;
-
         void Awake()
         {
-
             _Buttons = new List<GameObject>();
-
-            
         }
 
-        void Start()
+        protected override void Hook1()
         {
             _grp = GlobalGameInfo.PlayerGroupData;
-            int numButtons = ConstructButtons();
         }
 
-
-        private int ConstructButtons()
+        protected override int ConstructButtons()
         {
             int i = 0;
             //Debug.Log("_grp.GroupMembersCharacterData.Count:" + _grp.GroupMembersCharacterData.Count);
             for (i = 0; i < _grp.GroupMembersCharacterData.Count;i++ )
             {
-                GameObject targetButton = Instantiate(_TargetButton);
+                GameObject targetButton = Instantiate(_Button);
                 targetButton.transform.SetParent(this.gameObject.transform, false);
                 _Buttons.Add(targetButton);
                 Button but = targetButton.GetComponent<Button>();
@@ -94,7 +83,7 @@ namespace GUIScripts
         public void ButtonCallback(BaseEventData eventData)
         {
             GameObject but = eventData.selectedObject;
-            Debug.Log(but.ToString() +", "+ but.GetType());
+            //Debug.Log(but.ToString() +", "+ but.GetType());
             TargetButtonInfo info = but.GetComponent<TargetButtonInfo>();
 
             //Debug.Log("info.TargetNum:" + info.TargetNum);

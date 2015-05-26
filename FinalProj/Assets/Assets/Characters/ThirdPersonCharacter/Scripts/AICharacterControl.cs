@@ -3,7 +3,7 @@ using UnityEngine;
 using CharacterWeaponFramework;
 using FSM;
 
-namespace CharacterWeaponFramework
+namespace AI
 {
     [RequireComponent(typeof (NavMeshAgent))]
     [RequireComponent(typeof (ThirdPersonCharacter))]
@@ -17,7 +17,6 @@ namespace CharacterWeaponFramework
         private float _MaxDistanceToLeader;
         public GameObject target; // target to aim for
         private Transform _transTarget;
-        private bool _moveToTarget;
         private FSMSystem fsm;
 
         public float PersonalSpace
@@ -52,8 +51,10 @@ namespace CharacterWeaponFramework
         {
             MoveToGroupLeaderState follow = new MoveToGroupLeaderState();
             follow.AddTransition(Transition.TransitionToMovingToGroupLeaderState,StateID.MoveingToGroupLeaderStateID);
+            follow.AddTransition(Transition.TransitionToStandingStillState, StateID.StandingStillStateID);
             StandStillState stand = new StandStillState();
             stand.AddTransition(Transition.TransitionToStandingStillState, StateID.StandingStillStateID);
+            stand.AddTransition(Transition.TransitionToMovingToGroupLeaderState, StateID.MoveingToGroupLeaderStateID);
 
             fsm = new FSMSystem();
             fsm.AddState(follow);
@@ -71,8 +72,12 @@ namespace CharacterWeaponFramework
         {
             if (target != null )
             {
-                fsm.CurrentState.Reason(target, this.gameObject);
+                foreach(FSMState state in fsm)
+                {
+                    state.Reason(target, this.gameObject);
+                }
                 fsm.CurrentState.Act(target, this.gameObject);
+                
             }
             else
             {
@@ -80,18 +85,5 @@ namespace CharacterWeaponFramework
             }
 
         }
-
-        private void StopMoving()
-        {
-            // We still need to call the character's move function, but we send zeroed input as the move param.
-            character.Move(Vector3.zero, false, false);
-        }
-
-        public void SetTarget(Transform target)
-        {
-            this._transTarget = target;
-        }
-
-
     }
 }
