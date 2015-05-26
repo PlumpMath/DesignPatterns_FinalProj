@@ -111,6 +111,7 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\LeveledList.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\MarkerMoniter.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Spawners.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
@@ -118,9 +119,10 @@
      <Compile Include="Assets\Assets\scripts\GlobalGameInfo.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
-     <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
+     <Compile Include="Assets\Assets\scripts\States\DoNothingState.cs" />
      <Compile Include="Assets\Assets\scripts\States\MoveToGroupLeaderState.cs" />
      <Compile Include="Assets\Assets\scripts\States\StandStillState.cs" />
+     <Compile Include="Assets\Assets\scripts\States\TeleportMarkerState.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
      <Compile Include="Assets\Inventory_burg\Armor.cs" />
      <Compile Include="Assets\Inventory_burg\Chest.cs" />
@@ -146,7 +148,7 @@
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Users/James/Desktop/Files/Programming/UnityProjects/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

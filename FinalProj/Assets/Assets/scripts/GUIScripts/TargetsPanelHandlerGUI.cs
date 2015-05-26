@@ -24,10 +24,7 @@ namespace GUIScripts
 
         void Awake()
         {
-
             _Buttons = new List<GameObject>();
-
-            
         }
 
         void Start()
@@ -94,7 +91,7 @@ namespace GUIScripts
         public void ButtonCallback(BaseEventData eventData)
         {
             GameObject but = eventData.selectedObject;
-            Debug.Log(but.ToString() +", "+ but.GetType());
+            //Debug.Log(but.ToString() +", "+ but.GetType());
             TargetButtonInfo info = but.GetComponent<TargetButtonInfo>();
 
             //Debug.Log("info.TargetNum:" + info.TargetNum);

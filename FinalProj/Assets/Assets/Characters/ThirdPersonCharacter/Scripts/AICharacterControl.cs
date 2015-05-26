@@ -3,7 +3,7 @@ using UnityEngine;
 using CharacterWeaponFramework;
 using FSM;
 
-namespace CharacterWeaponFramework
+namespace AI
 {
     [RequireComponent(typeof (NavMeshAgent))]
     [RequireComponent(typeof (ThirdPersonCharacter))]
@@ -52,8 +52,10 @@ namespace CharacterWeaponFramework
         {
             MoveToGroupLeaderState follow = new MoveToGroupLeaderState();
             follow.AddTransition(Transition.TransitionToMovingToGroupLeaderState,StateID.MoveingToGroupLeaderStateID);
+            follow.AddTransition(Transition.TransitionToStandingStillState, StateID.StandingStillStateID);
             StandStillState stand = new StandStillState();
             stand.AddTransition(Transition.TransitionToStandingStillState, StateID.StandingStillStateID);
+            stand.AddTransition(Transition.TransitionToMovingToGroupLeaderState, StateID.MoveingToGroupLeaderStateID);
 
             fsm = new FSMSystem();
             fsm.AddState(follow);
@@ -71,8 +73,12 @@ namespace CharacterWeaponFramework
         {
             if (target != null )
             {
-                fsm.CurrentState.Reason(target, this.gameObject);
+                foreach(FSMState state in fsm)
+                {
+                    state.Reason(target, this.gameObject);
+                }
                 fsm.CurrentState.Act(target, this.gameObject);
+                
             }
             else
             {

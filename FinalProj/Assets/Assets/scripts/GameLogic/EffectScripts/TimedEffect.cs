@@ -60,7 +60,7 @@ namespace EffectScripts
         private void removeEffect(System.Object source, ElapsedEventArgs e)
         {
             Tim.Enabled = false;
-            Debug.Log("Effect removed");
+            Debug.Log("TimedEffect: Effect removed");
             unsubsriber.Dispose();
         }
      

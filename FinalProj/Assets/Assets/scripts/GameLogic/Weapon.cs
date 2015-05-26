@@ -25,11 +25,6 @@ namespace CharacterWeaponFramework
         [SerializeField]
         private double _ChanceToHit;
 
-        protected Weapon()
-        {
-            _AttackEffect = new NullEffect();
-        }
-
         public double MinDamage
         {
             get { return _MinDamage; }
@@ -56,6 +51,11 @@ namespace CharacterWeaponFramework
             get { return _ChanceToHit; }
         }
         #endregion
+
+        protected Weapon()
+        {
+            _AttackEffect = new NullEffect();
+        }
 
         public bool attack(CharacterData Holder, CharacterData target)
         {

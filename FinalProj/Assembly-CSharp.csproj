@@ -111,6 +111,7 @@
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\TimedEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Group.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\LeveledList.cs" />
+     <Compile Include="Assets\Assets\scripts\GameLogic\MarkerMoniter.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Movement.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Spawners.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\Weapon.cs" />
@@ -118,9 +119,10 @@
      <Compile Include="Assets\Assets\scripts\GlobalGameInfo.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
-     <Compile Include="Assets\Assets\scripts\SpawnerTest.cs" />
+     <Compile Include="Assets\Assets\scripts\States\DoNothingState.cs" />
      <Compile Include="Assets\Assets\scripts\States\MoveToGroupLeaderState.cs" />
      <Compile Include="Assets\Assets\scripts\States\StandStillState.cs" />
+     <Compile Include="Assets\Assets\scripts\States\TeleportMarkerState.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
      <Compile Include="Assets\Inventory_burg\Armor.cs" />
      <Compile Include="Assets\Inventory_burg\Chest.cs" />
