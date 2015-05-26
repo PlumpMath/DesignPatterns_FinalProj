@@ -98,6 +98,7 @@
      <Compile Include="Assets\Assets\scripts\GUIScripts\StartGame.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\TargetButtonInfo.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\TargetsPanelHandlerGUI.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\TemplatePanelHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\UpdateGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterData.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\HealEffect.cs" />

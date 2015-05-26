@@ -63,8 +63,6 @@ namespace EffectScripts
             Debug.Log("TimedEffect: Effect removed");
             unsubsriber.Dispose();
         }
-     
-
     }
 }
 

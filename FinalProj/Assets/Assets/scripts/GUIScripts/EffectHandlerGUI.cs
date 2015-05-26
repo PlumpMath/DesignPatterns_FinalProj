@@ -10,40 +10,39 @@ using Globals;
 
 namespace GUIScripts
 {
-    public class EffectHandlerGUI : MonoBehaviour
+    public class EffectHandlerGUI : TemplatePanelHandlerGUI
     {
-        [SerializeField]
-        private GameObject _EffectButton;
+        /*[SerializeField]
+        private GameObject _EffectButton;*/
         [SerializeField]
         private GameObject _TargetsPanel;
         private List<Button> _Buttons;
 
-        private const int ButtonHeight = 30;
+        /*private const int ButtonHeight = 30;
         private const int ButtonWidth = 160;
-        private const int MaxPanelHeight = ButtonHeight * 10;
+        private const int MaxPanelHeight = ButtonHeight * 10;*/
 
         
         void Awake()
         {
             UnityEngine.Object.DontDestroyOnLoad(this);
+            _Buttons = new List<Button>();
         }
 
-        void Start()
+        /*void Start()
         {
-            _Buttons = new List<Button>();
-
             int numButtons = ConstructButtons();
             ResizePanelToButtons(numButtons);
-        }
+        }*/
 
-        private int ConstructButtons()
+        protected override int ConstructButtons()
         {
             int i = 0;
 
             TargetsPanelHandlerGUI targetsPanel = _TargetsPanel.GetComponent<TargetsPanelHandlerGUI>();
             for (i = 0; i < GlobalGameInfo.EffFact.FactSize; i++)
             {
-                GameObject butObj = Instantiate<GameObject>(_EffectButton);
+                GameObject butObj = Instantiate<GameObject>(_Button);
                 
                 butObj.transform.SetParent(this.gameObject.transform, false);
                 RectTransform butTrans = butObj.GetComponent<RectTransform>();
@@ -70,7 +69,7 @@ namespace GUIScripts
             return i;
         }
 
-        private void ResizePanelToButtons(int numButtons)
+        /*private void ResizePanelToButtons(int numButtons)
         {
             float tmp = (2 * ButtonWidth) - (ButtonWidth / 2.0f);
             RectTransform trans = this.GetComponent<RectTransform>();
@@ -79,7 +78,7 @@ namespace GUIScripts
             float temp = numButtons * ButtonHeight / 2;
 
             trans.anchoredPosition3D = new Vector3(tmp, -temp, 0);
-        }
+        }*/
 
     }
 }
