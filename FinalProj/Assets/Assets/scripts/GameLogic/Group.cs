@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityStandardAssets.Characters;
 using AI;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public class Group : MonoBehaviour
     {

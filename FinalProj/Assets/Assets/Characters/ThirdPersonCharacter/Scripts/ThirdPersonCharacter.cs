@@ -1,11 +1,12 @@
 using UnityEngine;
-using CharacterWeaponFramework;
+using CharacterScripts;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(CharacterData))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;

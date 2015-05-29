@@ -3,7 +3,7 @@ using System.Collections;
 using FSM;
 using AI;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public class BattleState : FSMState
     {
@@ -21,6 +21,7 @@ namespace CharacterWeaponFramework
         {
 
             AICharacterControl enemy = npc.GetComponent<AICharacterControl>();
+            enemy.target = npc;
             enemy.SetTransition(Transition.TransitionToStandingStillState);
         }
     }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using CharacterWeaponFramework;
+using CharacterScripts;
 using System.Collections.Generic;
 using System.Text;
 using Globals;

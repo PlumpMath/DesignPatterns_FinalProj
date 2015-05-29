@@ -3,7 +3,7 @@ using System.Collections;
 using FSM;
 using AI;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public class NormalState : FSMState
     {
@@ -20,11 +20,13 @@ namespace CharacterWeaponFramework
             {
                 control.SetTransition(Transition.TransitionToBattleState);
             }
+
         }
 
         public override void Act(GameObject player, GameObject npc)
         {
             //turn off button input as a work around 
+            
         }
     }
 }

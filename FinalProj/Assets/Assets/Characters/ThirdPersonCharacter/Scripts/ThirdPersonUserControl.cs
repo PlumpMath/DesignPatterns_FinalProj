@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using FSM;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
@@ -46,7 +46,7 @@ namespace CharacterWeaponFramework
             fsm.AddState(battle);
             fsm.AddState(normal);
 
-            
+            SetTransition(Transition.TransitionToNormalState);
 
         }
 
