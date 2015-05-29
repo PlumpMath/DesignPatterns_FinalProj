@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using System;
+using EffectScripts;
 
 namespace CharacterWeaponFramework
 {
@@ -163,11 +164,6 @@ namespace CharacterWeaponFramework
             _AppliedEffects = new List<TimedEffect>();
         }
 
-        void Start()
-        {
-            
-        }
-
         void Update()
         {
             _position = this.gameObject.transform.position;
@@ -195,7 +191,7 @@ namespace CharacterWeaponFramework
             { 
                 if(value == null)
                 {
-                    Debug.LogWarning("Attempted to set character name to null!");
+                    Debug.LogError("CharacterData: Attempted to set character name to null.");
                 }
                 else
                 {
@@ -226,8 +222,6 @@ namespace CharacterWeaponFramework
         {
             get { return _enemy; }
         }
-
-
 
         public IDisposable Subscribe(TimedEffect observer)
         {

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using EffectScripts;
 
 namespace CharacterWeaponFramework
 {
@@ -23,11 +24,6 @@ namespace CharacterWeaponFramework
         private double _StaminaCost;
         [SerializeField]
         private double _ChanceToHit;
-
-        protected Weapon()
-        {
-            _AttackEffect = new NullEffect();
-        }
 
         public double MinDamage
         {
@@ -55,6 +51,11 @@ namespace CharacterWeaponFramework
             get { return _ChanceToHit; }
         }
         #endregion
+
+        protected Weapon()
+        {
+            _AttackEffect = new NullEffect();
+        }
 
         public bool attack(CharacterData Holder, CharacterData target)
         {

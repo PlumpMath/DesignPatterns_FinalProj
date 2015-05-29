@@ -48,14 +48,15 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Jess/Google Drive/Design Patterns/C#/Unity/Project/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/Jess/Google Drive/Design Patterns/C#/Unity/Project/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -64,13 +65,13 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ <HintPath>C:/Users/Jess/Google Drive/Design Patterns/C#/Unity/Project/FinalProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
  </Reference>
  <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+ <HintPath>C:/Users/Jess/Google Drive/Design Patterns/C#/Unity/Project/FinalProj/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
  </Reference>
  <Reference Include="UnityVS.VersionSpecific">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
+ <HintPath>C:/Users/Jess/Google Drive/Design Patterns/C#/Unity/Project/FinalProj/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

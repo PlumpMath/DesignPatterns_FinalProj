@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using CharacterWeaponFramework;
-
+using Globals;
 
 namespace GUIScripts
 {
@@ -20,7 +20,7 @@ namespace GUIScripts
         public TargetButtonInfo()
         {
             _targetNum = -1;
-            _grp = GameStateInfo.PlayerGroupData;
+            _grp = GlobalGameInfo.PlayerGroupData;
             _eff = "NullEffect";
         } 
 
@@ -44,7 +44,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("Button is already set!");
+                    Debug.LogWarning("TargetButtonInfo: Button is already set!");
                 }
             }
         }
@@ -62,7 +62,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("DisplayString already set!");
+                    Debug.LogWarning("TargetButtonInfo: DisplayString already set!");
                 }
             }
         }
@@ -78,7 +78,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("Data already set!");
+                    Debug.LogWarning("TargetButtonInfo: Data already set!");
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace GUIScripts
             {
                 if(_targetNum != -1)
                 {
-                    Debug.LogWarning("TargetNum is already set!");
+                    Debug.LogWarning("TargetButtonInfo: TargetNum is already set!");
                 }
                 else
                 {

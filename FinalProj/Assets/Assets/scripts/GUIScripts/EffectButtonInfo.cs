@@ -30,7 +30,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("DisplayString already set!");
+                    Debug.LogWarning("EffectButtonInfo: DisplayString already set!");
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("InternalNameString already set!");
+                    Debug.LogWarning("EffectButtonInfo: InternalNameString already set!");
                 }
             }
         }
@@ -62,7 +62,7 @@ namespace GUIScripts
                 }
                 else
                 {
-                    Debug.LogWarning("Btn already set!");
+                    Debug.LogWarning("EffectButtonInfo: Btn already set!");
                 }
             }
         }

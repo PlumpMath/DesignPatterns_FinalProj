@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CharacterWeaponFramework;
 
-namespace CharacterWeaponFramework
+namespace EffectScripts
 {
     public class TestInstantEffect : InstantEffect
     {

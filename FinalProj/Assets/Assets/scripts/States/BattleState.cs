@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FSM;
+using AI;
 
 namespace CharacterWeaponFramework
 {
@@ -13,18 +14,14 @@ namespace CharacterWeaponFramework
 
         public override void Reason(GameObject player, GameObject npc)
         {
-            AICharacterControl ai = npc.GetComponent<AICharacterControl>();
-            if (Vector3.Distance(player.transform.position, npc.transform.position) < ai.PersonalSpace)
-            {
-                ai.SetTransition(Transition.TransitionToBattleState);
-            }
+            
         }
 
         public override void Act(GameObject player, GameObject npc)
         {
-            ThirdPersonUserControl plyr = player.GetComponent<ThirdPersonUserControl>();
-            ThirdPersonCharacter character = player.GetComponent<ThirdPersonCharacter>();
-            character.Move(Vector3.zero, false, false);
+
+            AICharacterControl enemy = npc.GetComponent<AICharacterControl>();
+            enemy.SetTransition(Transition.TransitionToStandingStillState);
         }
     }
 }

@@ -4,8 +4,9 @@ using System;
 using UnityEngine.UI;
 using System.Timers;
 using Globals;
+using CharacterWeaponFramework;
 
-namespace CharacterWeaponFramework
+namespace EffectScripts
 {
     public abstract class TimedEffect : IEffect
     {
@@ -59,11 +60,9 @@ namespace CharacterWeaponFramework
         private void removeEffect(System.Object source, ElapsedEventArgs e)
         {
             Tim.Enabled = false;
-            Debug.Log("Effect removed");
+            Debug.Log("TimedEffect: Effect removed");
             unsubsriber.Dispose();
         }
-     
-
     }
 }
 

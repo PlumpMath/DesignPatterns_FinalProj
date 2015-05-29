@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using AI;
+using Globals;
 
 namespace CharacterWeaponFramework
 {
@@ -69,14 +71,16 @@ namespace CharacterWeaponFramework
             GameObject leader = g.GroupMembersGameObjects[0];
             AICharacterControl control = leader.GetComponent<AICharacterControl>();
             GameObject target = CreatePositionMarkerForLeader();
-            control.SetTarget(target.transform);
+            MarkerMoniter mon = target.GetComponent<MarkerMoniter>();
+            mon.MoniterFor = leader;
+            control.target = target;
         }
 
         private GameObject CreatePositionMarkerForLeader()
         {
             GameObject marker = Instantiate(_PositionMarker);
             System.Random rand = new System.Random();
-            Vector3 randVect = UnityEngine.Random.insideUnitSphere * rand.Next(100);
+            Vector3 randVect = UnityEngine.Random.insideUnitSphere * rand.Next(GlobalConsts.WORLD_SIZE);
             randVect.y = 0;
             marker.transform.position = randVect;
             return marker;
@@ -111,7 +115,7 @@ namespace CharacterWeaponFramework
                 }
                 catch(Exception e)
                 {
-                    Debug.LogError("Spawner has spawned something not a GameObject!" + e.StackTrace);
+                    Debug.LogError("Spawners: Spawner has spawned something not a GameObject!" + e.StackTrace);
                 } 
             }
         }
@@ -136,17 +140,17 @@ namespace CharacterWeaponFramework
                 //if nonsense values given log a message
                 if (value > 1)
                 {
-                    Debug.LogWarning("Attempted to set ChanceToSpawn to a value greater than 1. Setting value to 1.");
+                    Debug.LogWarning("Spawners: Attempted to set ChanceToSpawn to a value greater than 1. Setting value to 1.");
                     _ChanceToSpawn = 1;
                 }
                 else if (value < 0)
                 {
-                    Debug.LogWarning("Attempted to set ChanceToSpawn to a value less than 0. Setting value to 0.");
+                    Debug.LogWarning("Spawners: Attempted to set ChanceToSpawn to a value less than 0. Setting value to 0.");
                     _ChanceToSpawn = 0;
                 }
                 else
                 {
-                    Debug.Log("Changed ChanceToSpawn to " + value);
+                    Debug.Log("Spawners: Changed ChanceToSpawn to " + value);
                     _ChanceToSpawn = value;
                 }
             }
@@ -160,12 +164,12 @@ namespace CharacterWeaponFramework
                 //check input for values that make sense
                 if (value < 0)
                 {
-                    Debug.LogWarning("Attempted to set SpawnRadius to a value less than 0. Setting value to 0.");
+                    Debug.LogWarning("Spawners: Attempted to set SpawnRadius to a value less than 0. Setting value to 0.");
                     _SpawnRadius = 0;
                 }
                 else
                 {
-                    Debug.Log("Changed SpawnRadius to " + value);
+                    Debug.Log("Spawners: Changed SpawnRadius to " + value);
                     _SpawnRadius = value;
                 }
             }
