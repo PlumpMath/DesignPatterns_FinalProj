@@ -5,7 +5,7 @@ using System;
 using AI;
 using Globals;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     [RequireComponent(typeof(LeveledList))]
     public class Spawners : MonoBehaviour

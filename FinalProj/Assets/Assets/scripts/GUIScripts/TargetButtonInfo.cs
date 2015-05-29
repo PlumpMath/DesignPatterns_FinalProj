@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using CharacterWeaponFramework;
+using CharacterScripts;
 using Globals;
 
 namespace GUIScripts

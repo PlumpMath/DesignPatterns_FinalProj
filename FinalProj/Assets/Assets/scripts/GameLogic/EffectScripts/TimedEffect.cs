@@ -4,7 +4,7 @@ using System;
 using UnityEngine.UI;
 using System.Timers;
 using Globals;
-using CharacterWeaponFramework;
+using CharacterScripts;
 
 namespace EffectScripts
 {

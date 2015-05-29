@@ -4,7 +4,7 @@ using System.Text;
 using UnityEngine;
 using EffectScripts;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public abstract class Weapon 
     {

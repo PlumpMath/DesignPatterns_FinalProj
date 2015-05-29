@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using CharacterWeaponFramework;
+using CharacterScripts;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;

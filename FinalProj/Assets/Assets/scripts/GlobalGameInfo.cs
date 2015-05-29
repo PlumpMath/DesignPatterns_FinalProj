@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using CharacterWeaponFramework;
+using CharacterScripts;
 using EffectScripts;
 
 namespace Globals

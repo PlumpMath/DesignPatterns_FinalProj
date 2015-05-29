@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using CharacterWeaponFramework;
+using CharacterScripts;
 
 namespace EffectScripts
 {
