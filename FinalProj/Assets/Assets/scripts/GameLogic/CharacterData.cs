@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using EffectScripts;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     
     public class CharacterData : MonoBehaviour

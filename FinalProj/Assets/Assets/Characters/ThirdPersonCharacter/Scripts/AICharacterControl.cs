@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using CharacterWeaponFramework;
+using CharacterScripts;
 using FSM;
 
 namespace AI
@@ -72,10 +72,7 @@ namespace AI
         {
             if (target != null )
             {
-                foreach(FSMState state in fsm)
-                {
-                    state.Reason(target, this.gameObject);
-                }
+                fsm.CurrentState.Reason(target, this.gameObject);
                 fsm.CurrentState.Act(target, this.gameObject);
                 
             }

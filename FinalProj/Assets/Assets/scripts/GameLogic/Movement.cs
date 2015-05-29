@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public class Movement : MonoBehaviour
     {

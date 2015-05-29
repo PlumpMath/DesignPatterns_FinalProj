@@ -3,7 +3,7 @@ using System.Collections;
 using FSM;
 using AI;
 
-namespace CharacterWeaponFramework
+namespace CharacterScripts
 {
     public class StandStillState : FSMState
     {
@@ -16,9 +16,10 @@ namespace CharacterWeaponFramework
         public override void Reason(GameObject player, GameObject npc)
         {
             AICharacterControl ai = npc.GetComponent<AICharacterControl>();
-            if(Vector3.Distance(player.transform.position,npc.transform.position) < ai.PersonalSpace)
+            
+            if (Vector3.Distance(player.transform.position, npc.transform.position) >= ai.MaxDistanceToLeader)
             {
-                ai.SetTransition(Transition.TransitionToStandingStillState);
+                ai.SetTransition(Transition.TransitionToMovingToGroupLeaderState);
             }
 
         }
