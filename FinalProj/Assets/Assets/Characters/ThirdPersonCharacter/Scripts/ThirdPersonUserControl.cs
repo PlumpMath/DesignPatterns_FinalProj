@@ -71,17 +71,9 @@ namespace CharacterScripts
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemyGroup");
             for (int x = 0; x < enemies.Length; x++)
             {
-                Group currentGroup = enemies[x].GetComponent<Group>();
-                fsm.CurrentState.Reason(this.gameObject, currentGroup.Leader);
-                /*if (fsm.CurrentStateID == StateID.BattleStateID)
-                {
-                    for(int y = 0; y < currentGroup.GroupMembersGameObjects.Count; y++)
-                    {
-                        fsm.CurrentState.Act(this.gameObject, currentGroup.GroupMembersGameObjects[y]);
-                    }
-                }
-                else */
-                fsm.CurrentState.Act(this.gameObject, currentGroup.Leader);
+                Globals.GlobalGameInfo.EnemyGroup = enemies[x].GetComponent<Group>();
+                fsm.CurrentState.Reason(this.gameObject, Globals.GlobalGameInfo.EnemyGroup.Leader);
+                fsm.CurrentState.Act(this.gameObject, Globals.GlobalGameInfo.EnemyGroup.Leader);
             }
 
             // read inputs
@@ -90,7 +82,7 @@ namespace CharacterScripts
             if(fsm.CurrentStateID == StateID.BattleStateID)
             {
                 h = 0; v = 0; crouch = false;
-                
+
             }
             else
             { 

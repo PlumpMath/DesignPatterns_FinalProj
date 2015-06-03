@@ -14,7 +14,7 @@ namespace Globals
         public GameObject _player;
         public static EffectFactory EffFact = new EffectFactory();
         private static GameObject[] _BattleUI;
-
+        public static Group EnemyGroup;
 
         public static Group PlayerGroupData
         {
