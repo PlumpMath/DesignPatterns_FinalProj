@@ -28,6 +28,7 @@ namespace CharacterScripts
         {
             ThirdPersonCharacter character = npc.GetComponent<ThirdPersonCharacter>();
             character.Move(Vector3.zero, false, false);
+
         }
     }
 }

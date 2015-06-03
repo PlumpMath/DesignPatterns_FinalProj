@@ -31,6 +31,11 @@ namespace CharacterScripts
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        public Rigidbody Rigidbody
+        {
+            get { return m_Rigidbody; }
+        }
+
         void Awake()
         {
             m_Animator = GetComponent<Animator>();

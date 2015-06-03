@@ -80,7 +80,7 @@ namespace AI
             {
                 Debug.LogError("AICharacterControl: target not set.");
             }
-
+            
         }
     }
 }

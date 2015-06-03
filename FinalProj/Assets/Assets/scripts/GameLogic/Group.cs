@@ -34,6 +34,10 @@ namespace CharacterScripts
             get { return _GroupMemberGameObjects; }
         }
 
+        public GameObject Leader
+        {
+            get { return _GroupMemberGameObjects[0]; }
+        }
         public Group()
         {
             Debug.Log("Group: Group Created");
