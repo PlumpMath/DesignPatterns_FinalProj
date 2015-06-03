@@ -14,6 +14,7 @@ namespace CharacterScripts
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
         private FSMSystem fsm;
+        [SerializeField]
         private float battleRadius;
         private void Start()
         {
@@ -31,7 +32,7 @@ namespace CharacterScripts
 
             // get the third person character ( this should never be null due to require component )
             m_Character = GetComponent<ThirdPersonCharacter>();
-            battleRadius = 1;
+
             MakeFSM();
         }
 
@@ -72,6 +73,14 @@ namespace CharacterScripts
             {
                 Group currentGroup = enemies[x].GetComponent<Group>();
                 fsm.CurrentState.Reason(this.gameObject, currentGroup.Leader);
+                /*if (fsm.CurrentStateID == StateID.BattleStateID)
+                {
+                    for(int y = 0; y < currentGroup.GroupMembersGameObjects.Count; y++)
+                    {
+                        fsm.CurrentState.Act(this.gameObject, currentGroup.GroupMembersGameObjects[y]);
+                    }
+                }
+                else */
                 fsm.CurrentState.Act(this.gameObject, currentGroup.Leader);
             }
 
