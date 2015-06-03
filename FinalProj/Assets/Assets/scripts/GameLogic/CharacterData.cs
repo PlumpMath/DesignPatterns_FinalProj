@@ -221,6 +221,7 @@ namespace CharacterScripts
         public bool Enemy
         {
             get { return _enemy; }
+            set { _enemy = value; }
         }
 
         public IDisposable Subscribe(TimedEffect observer)

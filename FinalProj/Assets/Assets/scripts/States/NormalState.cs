@@ -2,6 +2,9 @@
 using System.Collections;
 using FSM;
 using AI;
+using GUIScripts;
+using Globals;
+using Utils;
 
 namespace CharacterScripts
 {
@@ -22,6 +25,11 @@ namespace CharacterScripts
                 control.transform.LookAt(npc.transform.position);
             }
 
+        }
+
+        public override void DoBeforeEntering()
+        {
+            BattleUIUtils.ToggleBattleUI();
         }
 
         public override void Act(GameObject player, GameObject npc)

@@ -69,6 +69,7 @@
      <Compile Include="Assets\Assets\Utility\ActivateTrigger.cs" />
      <Compile Include="Assets\Assets\Utility\AutoMobileShaderSwitch.cs" />
      <Compile Include="Assets\Assets\Utility\AutoMoveAndRotate.cs" />
+     <Compile Include="Assets\Assets\Utility\BattleUIUtils.cs" />
      <Compile Include="Assets\Assets\Utility\CameraRefocus.cs" />
      <Compile Include="Assets\Assets\Utility\CurveControlledBob.cs" />
      <Compile Include="Assets\Assets\Utility\DragRigidbody.cs" />
