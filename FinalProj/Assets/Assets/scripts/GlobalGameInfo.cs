@@ -14,6 +14,7 @@ namespace Globals
         public GameObject _player;
         public static EffectFactory EffFact = new EffectFactory();
         private static GameObject[] _BattleUI;
+        public static Group enemyGroup;
 
 
         public static Group PlayerGroupData
@@ -29,8 +30,6 @@ namespace Globals
         void OnLevelWasLoaded()
         {
             _BattleUI = GameObject.FindGameObjectsWithTag("BattleUI");
-
-            //BattleUIUtils.ToggleBattleUI();
         }
 
         // Use this for initialization

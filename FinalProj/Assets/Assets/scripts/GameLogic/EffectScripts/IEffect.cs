@@ -11,6 +11,7 @@ namespace EffectScripts
     {
         IEffect CreateEffect(CharacterData target);
 
-        string EffectName{get;}
+        string EffectNameDisplayString{get;}
+        string EffectNameInternalString{get;}
     }
 }

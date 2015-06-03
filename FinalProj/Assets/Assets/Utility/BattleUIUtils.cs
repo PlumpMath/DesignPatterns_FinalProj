@@ -28,6 +28,7 @@ namespace Utils
             }
             else
             {
+                //this warning can be ignored if it isn't causing issues
                 Debug.LogWarning("BatteUIUtils: EffectButtonsPanel can't be found.");
             }
         }
@@ -41,6 +42,7 @@ namespace Utils
             }
             else
             {
+                //this warning can be ignored if it isn't causing issues
                 Debug.LogWarning("BattleUIUtils: TargetButtonsPanel can't be found.");
             }
         }

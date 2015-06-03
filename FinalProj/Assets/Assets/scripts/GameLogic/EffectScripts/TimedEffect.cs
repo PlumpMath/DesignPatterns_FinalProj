@@ -11,14 +11,16 @@ namespace EffectScripts
     public abstract class TimedEffect : IEffect
     {
         private IDisposable unsubsriber;
-        private string _EffectName;
+        private string _InternalEffectName;
+        private string _DisplayEffectName;
         private float _Lifetime;
         private CharacterData _target;
         private Timer Tim;
 
-        protected TimedEffect(string name, CharacterData target, float lifetime)
+        protected TimedEffect(CharacterData target,string InternalEffectName,string DisplayEffectName, float lifetime)
         {
-            _EffectName = name;
+            _InternalEffectName = InternalEffectName;
+            _DisplayEffectName = DisplayEffectName;
             _Lifetime = lifetime;
             Tim = new Timer(lifetime*GlobalConsts.NUM_MILLISECOND_IN_SECOND);
             Tim.Elapsed += removeEffect;
@@ -27,12 +29,16 @@ namespace EffectScripts
             this.Subscribe();
         }
 
-        protected TimedEffect()
-        {}
-
-        public string EffectName
+        protected TimedEffect(string InternalEffectName, string DisplayEffectName, float lifetime)
         {
-            get { return _EffectName; }
+            _InternalEffectName = InternalEffectName;
+            _DisplayEffectName = DisplayEffectName;
+            _Lifetime = lifetime;
+        }
+
+        public string EffectNameDisplayString
+        {
+            get { return _DisplayEffectName; }
         }
 
         public float Lifetime
@@ -62,6 +68,12 @@ namespace EffectScripts
             Tim.Enabled = false;
             Debug.Log("TimedEffect: Effect removed");
             unsubsriber.Dispose();
+        }
+
+
+        public string EffectNameInternalString
+        {
+            get { return _InternalEffectName; }
         }
     }
 }
