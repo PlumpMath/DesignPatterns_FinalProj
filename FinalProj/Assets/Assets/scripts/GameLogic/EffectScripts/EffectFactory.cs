@@ -9,6 +9,7 @@ namespace EffectScripts
     public class EffectFactory
     {
         private List<Effects> _EffectList;
+        private List<Effects> _ValidEffectList;
 
         public EffectFactory()
         {
@@ -21,6 +22,20 @@ namespace EffectScripts
             _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect", false));
 
 
+            CreateValidEffectList();
+        }
+
+        private void CreateValidEffectList()
+        {
+            _ValidEffectList = new List<Effects>();
+            int i;
+            for (i = 0; i < _EffectList.Count; i++)
+            {
+                if (_EffectList[i].Display)
+                {
+                    _ValidEffectList.Add(_EffectList[i]);
+                }
+            }
         }
 
 
@@ -37,17 +52,17 @@ namespace EffectScripts
 
         public int FactSize
         {
-            get { return _EffectList.Count; }
+            get { return _ValidEffectList.Count; }
         }
 
         public string GetDisplayString(int i)
         {
-            return _EffectList[i].DisplayName;
+            return _ValidEffectList[i].DisplayName;
         }
 
         public string GetInternalName(int i)
         {
-            return _EffectList[i].Name;
+            return _ValidEffectList[i].Name;
         }
 
         private int IndexOf(string name)

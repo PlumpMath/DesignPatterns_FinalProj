@@ -42,6 +42,7 @@ namespace AI
             //make sure that _MaxDistanceToLeader is greater than _PersonalSpace since that wouldn't make sense
             if(_MaxDistanceToLeader < _PersonalSpace)
             {
+                Debug.LogWarning("AICharacterControl: MaxDistanceToLeader is smaller than PersonalSpace.");
                 _MaxDistanceToLeader = _PersonalSpace + 1;
             }
             MakeFSM();
@@ -74,13 +75,12 @@ namespace AI
             {
                 fsm.CurrentState.Reason(target, this.gameObject);
                 fsm.CurrentState.Act(target, this.gameObject);
-                
             }
             else
             {
                 Debug.LogError("AICharacterControl: target not set.");
             }
-
+            
         }
     }
 }

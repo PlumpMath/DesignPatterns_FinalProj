@@ -26,7 +26,7 @@ namespace GUIScripts
         protected override int ConstructButtons()
         {
             int i = 0;
-
+            
             TargetsPanelHandlerGUI targetsPanel = _TargetsPanel.GetComponent<TargetsPanelHandlerGUI>();
             for (i = 0; i < GlobalGameInfo.EffFact.FactSize; i++)
             {

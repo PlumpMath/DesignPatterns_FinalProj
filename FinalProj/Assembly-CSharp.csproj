@@ -120,8 +120,10 @@
      <Compile Include="Assets\Assets\scripts\GlobalGameInfo.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObservable.cs" />
      <Compile Include="Assets\Assets\scripts\Interfaces\IObserver.cs" />
+     <Compile Include="Assets\Assets\scripts\States\BattleState.cs" />
      <Compile Include="Assets\Assets\scripts\States\DoNothingState.cs" />
      <Compile Include="Assets\Assets\scripts\States\MoveToGroupLeaderState.cs" />
+     <Compile Include="Assets\Assets\scripts\States\NormalState.cs" />
      <Compile Include="Assets\Assets\scripts\States\StandStillState.cs" />
      <Compile Include="Assets\Assets\scripts\States\TeleportMarkerState.cs" />
      <Compile Include="Assets\DnD_Sandbox\PlayerCamera.cs" />
@@ -145,6 +147,7 @@
      <Compile Include="Assets\SimpleBot\Scripts\TP_Controller.cs" />
      <Compile Include="Assets\SimpleBot\Scripts\TP_Motor.cs" />
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

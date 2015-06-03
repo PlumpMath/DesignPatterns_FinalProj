@@ -19,8 +19,8 @@ namespace CharacterScripts
         
         /*Unity wants these to be public*/
         //public List<GameObject> _MemberTypes;
-        public GameObject _LeadMember;
-        public GameObject _DefaultGroupMembers;
+        //public GameObject _LeadMember;
+        //public GameObject _DefaultGroupMembers;
         //public GUIText _GroupMembersText;
         public Vector3 avgOfGroup;
 
@@ -34,6 +34,10 @@ namespace CharacterScripts
             get { return _GroupMemberGameObjects; }
         }
 
+        public GameObject Leader
+        {
+            get { return _GroupMemberGameObjects[0]; }
+        }
         public Group()
         {
             Debug.Log("Group: Group Created");
