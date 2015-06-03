@@ -8,13 +8,15 @@ namespace EffectScripts
     {
         private float _damage;
 
-	    public PoisonEffect(CharacterData target):base("Poisoned",target,1)
-        { 
-            _damage = .2f; 
+	    private PoisonEffect(CharacterData target, string InternalEffectName ,string DisplayEffectName, float lifetime, float strength):base(target,InternalEffectName,DisplayEffectName,lifetime)
+        {
+            _damage = strength;
         }
 
-        public PoisonEffect()
-        {}
+        public PoisonEffect(string InternalEffectName, string DisplayEffectName, float lifetime, float strength):base(InternalEffectName, DisplayEffectName,lifetime)
+        {
+            _damage = strength;
+        }
 
         public override void ApplyEffect()
         {
@@ -23,7 +25,7 @@ namespace EffectScripts
 
         public override IEffect CreateEffect(CharacterData target)
         {
-            return new PoisonEffect(target);
+            return new PoisonEffect(target,this.EffectNameInternalString,EffectNameDisplayString,this.Lifetime,this._damage);
         }
     }
 }

@@ -7,25 +7,29 @@ namespace EffectScripts
 {
     public abstract class InstantEffect : IEffect
     {
-        private string _EffectName;
+        private string _InternalEffectName;
+        private string _DisplayEffectName;
 
-        protected InstantEffect(string name)
+        protected InstantEffect(string InternalEffectName, string DisplayEffectName)
         {
-            _EffectName = name;
+            _InternalEffectName = InternalEffectName;
+            _DisplayEffectName = DisplayEffectName;
         }
 
         protected InstantEffect()
         {}
 
-        public string EffectName
+        public string EffectNameDisplayString
         {
-            get { return _EffectName; }
+            get { return _DisplayEffectName; }
         }
 
         public abstract IEffect CreateEffect(CharacterData target);
 
-
-
+        public string EffectNameInternalString
+        {
+            get { return _InternalEffectName; }
+        }
     }
 }
 

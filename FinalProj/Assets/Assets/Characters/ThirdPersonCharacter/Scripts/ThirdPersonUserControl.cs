@@ -71,9 +71,9 @@ namespace CharacterScripts
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemyGroup");
             for (int x = 0; x < enemies.Length; x++)
             {
-                Globals.GlobalGameInfo.EnemyGroup = enemies[x].GetComponent<Group>();
-                fsm.CurrentState.Reason(this.gameObject, Globals.GlobalGameInfo.EnemyGroup.Leader);
-                fsm.CurrentState.Act(this.gameObject, Globals.GlobalGameInfo.EnemyGroup.Leader);
+                Globals.GlobalGameInfo.enemyGroup = enemies[x].GetComponent<Group>();
+                fsm.CurrentState.Reason(this.gameObject, Globals.GlobalGameInfo.enemyGroup.Leader);
+                fsm.CurrentState.Act(this.gameObject, Globals.GlobalGameInfo.enemyGroup.Leader);
             }
 
             // read inputs

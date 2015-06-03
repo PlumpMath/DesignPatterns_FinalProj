@@ -54,7 +54,7 @@ namespace CharacterScripts
 
         protected Weapon()
         {
-            _AttackEffect = new NullEffect();
+            _AttackEffect = new NullEffect("NullEffect","Null Effect");
         }
 
         public bool attack(CharacterData Holder, CharacterData target)

@@ -16,10 +16,10 @@ namespace EffectScripts
             _EffectList = new List<Effects>();
 
             //Add effects to the list of effects in the game here
-            _EffectList.Add(new Effects(new NullEffect()        , "NullEffect"          ,"Null Effect", false));
-            _EffectList.Add(new Effects(new PoisonEffect()      , "PoisonEffect"        ,"Poison Effect", true));
-            _EffectList.Add(new Effects(new HealEffect()        , "HealEffect"          ,"Heal Effect", true));
-            _EffectList.Add(new Effects(new TestInstantEffect() , "TestInstantEffect"   , "Test Instant Effect", false));
+            _EffectList.Add(new Effects(new NullEffect("NullEffect","Null Effect")                       , false));
+            _EffectList.Add(new Effects(new PoisonEffect("PoisonEffect","Poison Effect",1,.2f)           , true));
+            _EffectList.Add(new Effects(new HealEffect("HealEffect","Heal Effect",2,.2f)                 , true));
+            _EffectList.Add(new Effects(new TestInstantEffect("TestInstantEffect","TestInstantEffect",20), false));
 
 
             CreateValidEffectList();
@@ -47,7 +47,7 @@ namespace EffectScripts
                 return _EffectList[t].Effect.CreateEffect(target);
             }
 
-            return new NullEffect();
+            return new NullEffect("NullEffect","Null Effect");
         }
 
         public int FactSize
@@ -57,12 +57,12 @@ namespace EffectScripts
 
         public string GetDisplayString(int i)
         {
-            return _ValidEffectList[i].DisplayName;
+            return _ValidEffectList[i].Effect.EffectNameDisplayString;
         }
 
         public string GetInternalName(int i)
         {
-            return _ValidEffectList[i].Name;
+            return _ValidEffectList[i].Effect.EffectNameInternalString;
         }
 
         private int IndexOf(string name)
@@ -70,7 +70,7 @@ namespace EffectScripts
             int i = 0;
             for(i = 0;i<_EffectList.Count;i++ )
             {
-                if(_EffectList[i].Name==name)
+                if(_EffectList[i].Effect.EffectNameInternalString==name)
                 {
                     return i;
                 }
@@ -82,31 +82,17 @@ namespace EffectScripts
         private struct Effects
         {
             private IEffect _effect;
-            private string _internalName;
-            private string _displayName;
             private bool _display;
 
-            public Effects(IEffect eff, string internalName, string displayName, bool display)
+            public Effects(IEffect eff, bool display)
             {
                 _effect = eff;
-                _internalName = internalName;
-                _displayName = displayName;
                 _display = display;
             }
 
             public IEffect Effect
             {
                 get { return _effect; }
-            }
-
-            public string Name
-            {
-                get { return _internalName; }
-            }
-
-            public string DisplayName
-            {
-                get { return _displayName; }
             }
 
             public bool Display

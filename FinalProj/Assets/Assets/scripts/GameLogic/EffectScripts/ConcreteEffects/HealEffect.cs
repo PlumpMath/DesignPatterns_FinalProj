@@ -8,13 +8,15 @@ namespace EffectScripts
     {
         private float _heal;
         
-        public HealEffect(CharacterData target):base("Healing",target,2)
+        private HealEffect(CharacterData target, string InternalEffectName ,string DisplayEffectName, float lifetime, float strength):base(target,InternalEffectName,DisplayEffectName,lifetime)
         {
-            _heal = .2f;
+            _heal = strength;
         }
 
-        public HealEffect()
-        {}
+        public HealEffect(string InternalEffectName, string DisplayEffectName, float lifetime, float strength):base(InternalEffectName, DisplayEffectName,lifetime)
+        {
+            _heal = strength;
+        }
 
         public override void ApplyEffect()
         {
@@ -23,7 +25,7 @@ namespace EffectScripts
 
         public override IEffect CreateEffect(CharacterData target)
         {
-            return new HealEffect(target);
+            return new HealEffect(target, this.EffectNameInternalString,this.EffectNameDisplayString, this.Lifetime, this._heal);
         }
     }
 }
