@@ -81,6 +81,7 @@ namespace CharacterScripts
             if(fsm.CurrentStateID == StateID.BattleStateID)
             {
                 h = 0; v = 0; crouch = false;
+                
             }
             else
             { 

@@ -19,6 +19,7 @@ namespace CharacterScripts
             if (Vector3.Distance(player.transform.position, npc.transform.position) < control.BRadius)
             {
                 control.SetTransition(Transition.TransitionToBattleState);
+                control.transform.LookAt(npc.transform.position);
             }
 
         }

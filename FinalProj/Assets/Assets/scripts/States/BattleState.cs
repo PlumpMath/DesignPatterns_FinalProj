@@ -19,10 +19,10 @@ namespace CharacterScripts
 
         public override void Act(GameObject player, GameObject npc)
         {
-
             AICharacterControl enemy = npc.GetComponent<AICharacterControl>();
             enemy.target = npc;
             enemy.SetTransition(Transition.TransitionToStandingStillState);
+            //enemy.transform.LookAt(player.transform.position);
         }
     }
 }
