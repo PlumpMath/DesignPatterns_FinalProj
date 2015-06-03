@@ -23,6 +23,8 @@ namespace CharacterScripts
         public override void DoBeforeEntering()
         {
             BattleUIUtils.ToggleBattleUI();
+            //ensure that the sub panels are not enabled at the start of battle
+            BattleUIUtils.SetEffectSubPanelsToOff();
         }
 
         public override void Act(GameObject player, GameObject npc)
@@ -36,5 +38,6 @@ namespace CharacterScripts
             enemy.transform.LookAt(player.transform.position);
             
         }
+
     }
 }

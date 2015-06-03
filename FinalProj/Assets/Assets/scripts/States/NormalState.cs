@@ -29,6 +29,7 @@ namespace CharacterScripts
 
         public override void DoBeforeEntering()
         {
+            BattleUIUtils.ToggleEffectSubPanels();
             BattleUIUtils.ToggleBattleUI();
         }
 
