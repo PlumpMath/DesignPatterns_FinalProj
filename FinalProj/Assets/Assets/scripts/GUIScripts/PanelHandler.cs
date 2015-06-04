@@ -7,7 +7,7 @@ namespace GUIScripts
 {
     public class PanelHandler : MonoBehaviour
     {
-        public void TogglePanel(GameObject panel)
+        public static void StaticTogglePanel(GameObject panel)
         {
             if(panel.activeInHierarchy == false)
             {
@@ -17,6 +17,12 @@ namespace GUIScripts
             {
                 panel.SetActive(false);
             }
+        }
+
+        //because unity won't allow static methods to be called by button clicks a non static version is needed
+        public void TogglePanel(GameObject panel)
+        {
+            StaticTogglePanel(panel);
         }
         
     }

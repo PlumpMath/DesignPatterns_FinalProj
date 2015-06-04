@@ -55,9 +55,6 @@
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
- <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/James/Desktop/Files/Homework/CSCD349/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

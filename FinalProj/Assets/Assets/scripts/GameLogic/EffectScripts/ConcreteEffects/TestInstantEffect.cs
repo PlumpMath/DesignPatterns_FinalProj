@@ -8,18 +8,19 @@ namespace EffectScripts
     {
         private float _dmg;
 
-        public TestInstantEffect(CharacterData target):base("Test Instant Effect")
+        private TestInstantEffect(CharacterData target,string InternalEffectName, string DisplayEffectName,float strength):base(InternalEffectName,DisplayEffectName)
         {
-            _dmg = 20f;
-            target.CurHP -= _dmg;
+            target.CurHP -= strength;
         }
 
-        public TestInstantEffect()
-        {}
+        public TestInstantEffect(string InternalEffectName, string DisplayEffectName,float strength):base(InternalEffectName,DisplayEffectName)
+        { 
+            _dmg = strength; 
+        }
 
         public override IEffect CreateEffect(CharacterData target)
         {
-            return new TestInstantEffect(target);
+            return new TestInstantEffect(target,this.EffectNameInternalString,this.EffectNameDisplayString,this._dmg);
         }
     }
 }

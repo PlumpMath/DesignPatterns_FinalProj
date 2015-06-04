@@ -7,12 +7,12 @@ namespace EffectScripts
 {
     public class NullEffect : InstantEffect
     {
-        public NullEffect() : base("Null Effect")
+        public NullEffect(string InternalEffectName, string DisplayEffectName) : base(InternalEffectName,DisplayEffectName)
         {}
 
         public override IEffect CreateEffect(CharacterData target)
         {
-            return new NullEffect();
+            return new NullEffect(this.EffectNameInternalString,this.EffectNameDisplayString);
         }
 
     }

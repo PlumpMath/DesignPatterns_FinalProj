@@ -26,7 +26,6 @@ namespace GUIScripts
         protected virtual void Hook1()
         {}
 
-
         private void ResizePanelToButtons(int numButtons)
         {
             

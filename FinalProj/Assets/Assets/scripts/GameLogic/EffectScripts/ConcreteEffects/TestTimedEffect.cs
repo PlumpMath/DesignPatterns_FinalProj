@@ -7,10 +7,10 @@ namespace EffectScripts
     public class TestTimedEffect : TimedEffect
     {
         
-        public TestTimedEffect(CharacterData target):base("TestTimedEffect", target,5)
+        private TestTimedEffect(CharacterData target,string InternalEffectName, string DisplayEffectName,float lifetime):base(target,InternalEffectName,DisplayEffectName,lifetime)
         { }
 
-        public TestTimedEffect()
+        public TestTimedEffect(string InternalEffectName,string DisplayEffectName,float lifetime):base(InternalEffectName,DisplayEffectName,lifetime)
         { }
 
         public override void ApplyEffect()
@@ -20,7 +20,7 @@ namespace EffectScripts
 
         public override IEffect CreateEffect(CharacterData target)
         {
-            return new TestTimedEffect(target);
+            return new TestTimedEffect(target,this.EffectNameInternalString,this.EffectNameDisplayString,this.Lifetime);
         }
     }
 }

@@ -175,8 +175,20 @@ namespace CharacterScripts
             }
             if(_curHP <= 0)
             {
-                _alive = false;
+                Death();
             }
+        }
+
+        private void Death()
+        {
+            if(_alive == true)
+            {
+                _alive = false;
+                Vector3 tmp = this.transform.rotation.eulerAngles;
+                tmp.z = 90;
+                this.transform.Rotate(tmp);
+            }
+            
         }
 
         public bool attack(CharacterData target)
@@ -221,6 +233,7 @@ namespace CharacterScripts
         public bool Enemy
         {
             get { return _enemy; }
+            set { _enemy = value; }
         }
 
         public IDisposable Subscribe(TimedEffect observer)

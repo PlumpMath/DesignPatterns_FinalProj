@@ -2,6 +2,9 @@
 using System.Collections;
 using FSM;
 using AI;
+using GUIScripts;
+using Globals;
+using Utils;
 
 namespace CharacterScripts
 {
@@ -14,7 +17,14 @@ namespace CharacterScripts
 
         public override void Reason(GameObject player, GameObject npc)
         {
-            
+
+        }
+
+        public override void DoBeforeEntering()
+        {
+            BattleUIUtils.ToggleBattleUI();
+            //ensure that the sub panels are not enabled at the start of battle
+            BattleUIUtils.SetEffectSubPanelsToOff();
         }
 
         public override void Act(GameObject player, GameObject npc)
@@ -26,6 +36,8 @@ namespace CharacterScripts
             enemy.SetTransition(Transition.TransitionToStandingStillState);
             character.Move(enemy.agent.desiredVelocity, false, false);
             enemy.transform.LookAt(player.transform.position);
+            
         }
+
     }
 }

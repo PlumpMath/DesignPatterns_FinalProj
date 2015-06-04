@@ -2,6 +2,9 @@
 using System.Collections;
 using FSM;
 using AI;
+using GUIScripts;
+using Globals;
+using Utils;
 
 namespace CharacterScripts
 {
@@ -22,6 +25,20 @@ namespace CharacterScripts
                 control.transform.LookAt(npc.transform.position);
             }
 
+            //if the amount of dead things in the group is equal to the size of the group, transition to normal state
+            int dead = 0;
+            for (int y = 0; y < Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count; y++)
+            {
+                CharacterData currentEnemyData = Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects[y].GetComponent<CharacterData>();
+                if (currentEnemyData.Alive == false) dead++;
+            }
+            if (dead >= Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count)control.SetTransition(Transition.TransitionToNormalState);
+        }
+
+        public override void DoBeforeEntering()
+        {
+            BattleUIUtils.ToggleEffectSubPanels();
+            BattleUIUtils.ToggleBattleUI();
         }
 
         public override void Act(GameObject player, GameObject npc)
