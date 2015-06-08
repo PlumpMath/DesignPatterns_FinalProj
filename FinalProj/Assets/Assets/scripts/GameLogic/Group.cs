@@ -89,6 +89,8 @@ namespace CharacterScripts
             if (_GroupMemberGameObjects.Count < GlobalConsts.MAX_GROUP_SIZE)
             {
                 _GroupMemberGameObjects.Add(newCharacter);
+                CharacterData t = newCharacter.GetComponent<CharacterData>();
+                _groupMemberCharacterData.Add(t);
             }
         }
 

@@ -7,8 +7,14 @@ using System;
 
 namespace Utils
 {
-    public class BattleUIUtils
+    public class BattleUIUtils: MonoBehaviour
     {
+        [SerializeField]
+        private GameObject _EffectGUIPrefab;
+        [SerializeField]
+        private GameObject _AttackGUIPrefab;
+
+        private static BattleUIUtils _battleUiSingleton = new BattleUIUtils();
         private static GameObject effectBtnPanel;
         private static GameObject targetBtnPanel;
         public static void ToggleBattleUI()
@@ -17,6 +23,20 @@ namespace Utils
             {
                 PanelHandler.StaticTogglePanel(but);
             }
+        }
+        void Start()
+        {
+            _battleUiSingleton._EffectGUIPrefab = _EffectGUIPrefab;
+            _battleUiSingleton._AttackGUIPrefab = _AttackGUIPrefab;
+        }
+
+        public static void InstantiateBattleUI()
+        {
+            GameObject MainHUD = GameObject.FindGameObjectWithTag("MainHUD");
+            GameObject effectGUI = Instantiate(_battleUiSingleton._EffectGUIPrefab);
+            effectGUI.transform.SetParent(MainHUD.transform, false);
+            GameObject attackGUI = Instantiate(_battleUiSingleton._AttackGUIPrefab);
+            attackGUI.transform.SetParent(MainHUD.transform, false);
         }
 
         private static void SetEffectBtnPanel()

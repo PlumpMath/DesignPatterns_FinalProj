@@ -138,6 +138,8 @@
      <Compile Include="Assets\Assets\scripts\States\NormalState.cs" />
      <Compile Include="Assets\Assets\scripts\States\StandStillState.cs" />
      <Compile Include="Assets\Assets\scripts\States\TeleportMarkerState.cs" />
+     <Compile Include="Assets\Inventory\Movement.cs" />
+     <Compile Include="Assets\Inventory\PlayerCamera.cs" />
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

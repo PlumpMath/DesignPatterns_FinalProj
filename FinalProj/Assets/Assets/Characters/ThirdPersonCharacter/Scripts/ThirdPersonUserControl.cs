@@ -58,6 +58,7 @@ namespace CharacterScripts
         public void SetTransition(Transition t)
         {
             fsm.PerformTransition(t);
+
         }
 
 

@@ -22,7 +22,7 @@ namespace CharacterScripts
 
         public override void DoBeforeEntering()
         {
-            BattleUIUtils.ToggleBattleUI();
+            BattleUIUtils.InstantiateBattleUI();
             //ensure that the sub panels are not enabled at the start of battle
             BattleUIUtils.SetEffectSubPanelsToOff();
         }

@@ -23,14 +23,14 @@ namespace GUIScripts
 
         protected override void Hook1()
         {
-            _grp = GlobalGameInfo.PlayerGroupData;
+            _grp = GlobalGameInfo.enemyGroup;
         }
 
         protected override int ConstructButtons()
         {
             int i = 0;
             //Debug.Log("_grp.GroupMembersCharacterData.Count:" + _grp.GroupMembersCharacterData.Count);
-            for (i = 0; i < _grp.GroupMembersCharacterData.Count;i++ )
+            for (i = 0; i < _grp.GroupMembersGameObjects.Count;i++ )
             {
                 GameObject targetButton = Instantiate(_Button);
                 targetButton.transform.SetParent(this.gameObject.transform, false);
@@ -88,7 +88,7 @@ namespace GUIScripts
 
             //Debug.Log("info.TargetNum:" + info.TargetNum);
 
-            GlobalGameInfo.EffFact.CreateEffect(info.Effect, GlobalGameInfo.PlayerGroupData.GroupMembersCharacterData[info.TargetNum]);
+            GlobalGameInfo.EffFact.CreateEffect(info.Effect, _grp.GroupMembersCharacterData[info.TargetNum]);
         }
     }
 }
