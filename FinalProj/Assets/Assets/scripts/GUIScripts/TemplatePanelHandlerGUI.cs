@@ -22,6 +22,13 @@ namespace GUIScripts
             ResizePanelToButtons(_numButtons);
         }
 
+        /*public void init()
+        {
+            Hook1();
+            _numButtons = ConstructButtons();
+            ResizePanelToButtons(_numButtons);
+        }*/
+
         protected abstract int ConstructButtons();
         protected virtual void Hook1()
         {}
