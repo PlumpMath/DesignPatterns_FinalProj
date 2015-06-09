@@ -17,7 +17,15 @@ namespace CharacterScripts
 
         public override void Reason(GameObject player, GameObject npc)
         {
-
+            ThirdPersonUserControl control = player.GetComponent<ThirdPersonUserControl>();
+            //if the amount of dead things in the group is equal to the size of the group, transition to normal state
+            int dead = 0;
+            for (int y = 0; y < Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count; y++)
+            {
+                CharacterData currentEnemyData = Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects[y].GetComponent<CharacterData>();
+                if (currentEnemyData.Alive == false) dead++;
+            }
+            if (dead >= Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count) control.SetTransition(Transition.TransitionToNormalState);
         }
 
         public override void DoBeforeEntering()
