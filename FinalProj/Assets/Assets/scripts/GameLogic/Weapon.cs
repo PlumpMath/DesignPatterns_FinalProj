@@ -6,7 +6,7 @@ using EffectScripts;
 
 namespace CharacterScripts
 {
-    public abstract class Weapon 
+    public class Weapon 
     {
         [SerializeField]
         private string _name;
@@ -28,36 +28,114 @@ namespace CharacterScripts
         public double MinDamage
         {
             get { return _MinDamage; }
+            set
+            {
+                if(value < 0)
+                {
+                    _MinDamage = 0;
+                }
+                else
+                {
+                    _MinDamage = value;
+                }
+            }
 
         }
 
-        public double MaxDamge
+        public double MaxDamage
         {
-            get { return MaxDamge; }
+            get { return _MaxDamage; }
+            set
+            {
+                if(value < _MinDamage)
+                {
+                    _MaxDamage = _MinDamage;
+                }
+                else
+                {
+                    _MaxDamage = value;
+                }
+
+            }
         }
 
         public double ManaCost
         {
             get { return _ManaCost; }
+            set
+            {
+                if(value < 0)
+                {
+                    _ManaCost = 0;
+                }
+                else
+                {
+                    _ManaCost = value;
+                }
+            }
         }
 
         public double StaminaCost
         {
             get { return _StaminaCost; }
+            set
+            {
+                if(value<0)
+                {
+                    _StaminaCost = 0;
+                }
+                else
+                {
+                    _StaminaCost = value;
+                }
+            }
         }
 
         public double ChanceToHit
         {
             get { return _ChanceToHit; }
+            set
+            {
+                if(value < 0)
+                {
+                    _ChanceToHit = 0;
+                }
+                else if(value>1)
+                {
+                    _ChanceToHit = 1;
+                }
+                else
+                {
+                    _ChanceToHit = value;
+                }
+            }
         }
         #endregion
 
-        protected Weapon()
+        protected Weapon(string name, double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit)
         {
-            _AttackEffect = new NullEffect("NullEffect","Null Effect");
+            _name = name;
+            setWeaponStats(minDmg,maxDmg,manaCost,staminaCost,chanceToHit, new NullEffect("NullEffect", "Null Effect"));
         }
 
-        public bool attack(CharacterData Holder, CharacterData target)
+        protected Weapon(string name,double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit,IEffect eff)
+        {
+            _name = name;
+            setWeaponStats(minDmg, maxDmg, manaCost, staminaCost, chanceToHit, eff);
+        }
+
+        private void setWeaponStats(double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit, IEffect eff)
+        {
+            //DO NOT CHANGE ORDER MATTERS 
+            MaxDamage = maxDmg;
+            MinDamage = minDmg;
+            ManaCost = manaCost;
+            StaminaCost = staminaCost;
+            ChanceToHit = chanceToHit;
+            _AttackEffect = eff;
+        }
+
+        public virtual bool attack(CharacterData Holder, CharacterData target)
         {
             float temp = UnityEngine.Random.value;
             //the character uses up stamina and mana even if the attack misses
@@ -68,7 +146,7 @@ namespace CharacterScripts
             if (Holder.ChanceToHit <= temp && _ChanceToHit <= temp)
             {
                 //generate a random number between min and max damage of this characters weapon;
-                double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamge - target.Weapon.MinDamage) + target.Weapon.MinDamage;
+                double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamage - target.Weapon.MinDamage) + target.Weapon.MinDamage;
                 target.CurHP = target.CurHP - dmg;
                 _AttackEffect.CreateEffect(target);
                 return true;

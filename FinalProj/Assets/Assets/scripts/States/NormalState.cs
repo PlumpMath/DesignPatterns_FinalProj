@@ -15,27 +15,24 @@ namespace CharacterScripts
             _stateID = StateID.NormalStateID;
         }
 
-        public override void Reason(GameObject player, GameObject npc)
+        public override void Reason(GameObject player, GameObject group)
         {
             //enemy inside Battle Radius
             ThirdPersonUserControl control = player.GetComponent<ThirdPersonUserControl>();
-            if (Vector3.Distance(player.transform.position, npc.transform.position) < control.BRadius)
+            
+            if (Vector3.Distance(player.transform.position, group.transform.position) < control.BRadius)
             {
+                GlobalGameInfo.enemyGroup = group.GetComponent<Group>();
                 control.SetTransition(Transition.TransitionToBattleState);
-                control.transform.LookAt(npc.transform.position);
+                control.transform.LookAt(group.transform.position);
+                
             }
 
         }
 
-        public override void DoBeforeEntering()
-        {
-            BattleUIUtils.ToggleEffectSubPanels();
-            BattleUIUtils.ToggleBattleUI();
-        }
-
         public override void Act(GameObject player, GameObject npc)
         {
-            //turn off button input as a work around 
+            
             
         }
     }

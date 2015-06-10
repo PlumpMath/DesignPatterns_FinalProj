@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using FSM;
+using Globals;
 
 namespace CharacterScripts
 {
@@ -44,10 +45,8 @@ namespace CharacterScripts
             normal.AddTransition(Transition.TransitionToBattleState, StateID.BattleStateID);
 
             fsm = new FSMSystem();
-            fsm.AddState(battle);
             fsm.AddState(normal);
-
-            SetTransition(Transition.TransitionToNormalState);
+            fsm.AddState(battle);
 
         }
 
@@ -55,6 +54,7 @@ namespace CharacterScripts
         {
             get { return battleRadius; }
         }
+
         public void SetTransition(Transition t)
         {
             fsm.PerformTransition(t);
@@ -65,6 +65,7 @@ namespace CharacterScripts
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
+            Debug.Log(fsm.CurrentStateID.ToString());
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
@@ -72,9 +73,13 @@ namespace CharacterScripts
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("EnemyGroup");
             for (int x = 0; x < enemies.Length; x++)
             {
-                Globals.GlobalGameInfo.enemyGroup = enemies[x].GetComponent<Group>();
-                fsm.CurrentState.Reason(this.gameObject, Globals.GlobalGameInfo.enemyGroup.Leader);
-                fsm.CurrentState.Act(this.gameObject, Globals.GlobalGameInfo.enemyGroup.Leader);
+                Group enemyGroup = enemies[x].GetComponent<Group>();
+                //Debug.Log(GlobalGameInfo.enemyGroup.ToString());
+                GameObject leader = enemyGroup.Leader;
+                /*Debug.Log("local: "+leader.ToString());
+                Debug.Log("global:" +GlobalGameInfo.enemyGroup.Leader.ToString());*/
+                fsm.CurrentState.Reason(this.gameObject, enemyGroup.gameObject);
+                fsm.CurrentState.Act(this.gameObject, enemyGroup.gameObject);
             }
 
             // read inputs

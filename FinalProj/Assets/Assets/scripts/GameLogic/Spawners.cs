@@ -11,8 +11,6 @@ namespace CharacterScripts
     public class Spawners : MonoBehaviour
     {
         [SerializeField]
-        private List<string> _SpawnTags;
-        [SerializeField]
         private float _ChanceToSpawn;
         [SerializeField]
         private float _SpawnRadius;
@@ -49,6 +47,14 @@ namespace CharacterScripts
             //fill out the remaining spawn cap with things from the Spawn Tags list
             PopulateGroupFromLeveledList(_SpawnedGroup);
             SetMovementTargetsOfGroup(_SpawnedGroup);
+
+            ForceGroupPositionUpdate(t);
+        }
+
+        private void ForceGroupPositionUpdate(GameObject t)
+        {
+            _SpawnedGroup.UpdateAvgPositionOfGroup();
+            t.transform.position = _SpawnedGroup.avgOfGroup;
         }
 
         private void SetMovementTargetsOfGroup(Group g)
@@ -129,6 +135,13 @@ namespace CharacterScripts
             {
                 CreateGroupFromPrefab();
             }
+
+            if (_SpawnedGroup == null)
+            {
+                _ThingsSpawned = new List<GameObject>();
+                
+            }
+
         }
 
         public float ChanceToSpawn

@@ -33,7 +33,7 @@ namespace AI
                 }
                 else
                 {
-                    Debug.LogError("MarkerMoniter: requested MoniterFor but MoniterFor is null.");
+                    Debug.LogWarning("MarkerMoniter: requested MoniterFor but MoniterFor is null.");
                     return null;
                 }
             }
@@ -79,7 +79,8 @@ namespace AI
             }
             else
             {
-                Debug.LogError("MarkerMoniter: MoniterFor not set");
+                //ugly but don't have the time to do it proper
+                GameObject.Destroy(this.gameObject);
             }
         }
     }

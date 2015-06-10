@@ -38,6 +38,8 @@ namespace CharacterScripts
         private double _chanceToHit;
         [SerializeField]
         private bool _alive;
+        [SerializeField]
+        private float _speed;
 
         public double MaxHP
         {
@@ -151,6 +153,12 @@ namespace CharacterScripts
         public bool Alive
         {
             get { return _alive; }
+        }
+
+        public float Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
         }
         #endregion
 
