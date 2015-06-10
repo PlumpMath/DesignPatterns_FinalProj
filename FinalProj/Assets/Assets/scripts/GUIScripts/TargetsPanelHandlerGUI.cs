@@ -51,6 +51,7 @@ namespace GUIScripts
                 AddEvents(targetButton);
             }
 
+
             return i;
         }
 
@@ -86,9 +87,10 @@ namespace GUIScripts
             //Debug.Log(but.ToString() +", "+ but.GetType());
             TargetButtonInfo info = but.GetComponent<TargetButtonInfo>();
 
+            GameObject turnsBtn = GameObject.FindGameObjectWithTag("TurnButton");
             //Debug.Log("info.TargetNum:" + info.TargetNum);
-
-            GlobalGameInfo.EffFact.CreateEffect(info.Effect, _grp.GroupMembersCharacterData[info.TargetNum]);
+            turns t = turnsBtn.GetComponent<turns>();
+            t.AddAction(info.Effect, _grp.GroupMembersCharacterData[info.TargetNum]);
         }
     }
 }

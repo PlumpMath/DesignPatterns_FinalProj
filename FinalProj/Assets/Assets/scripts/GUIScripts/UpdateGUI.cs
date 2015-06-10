@@ -10,8 +10,10 @@ namespace GUIScripts
 {
     public class UpdateGUI : MonoBehaviour
     {
-        [SerializeField]
         private Group _playerGroup;
+        [SerializeField]
+        private GameObject turnBtn;
+
 
 
         void OnLevelWasLoaded()

@@ -15,35 +15,24 @@ namespace CharacterScripts
             _stateID = StateID.NormalStateID;
         }
 
-        public override void Reason(GameObject player, GameObject npc)
+        public override void Reason(GameObject player, GameObject group)
         {
             //enemy inside Battle Radius
             ThirdPersonUserControl control = player.GetComponent<ThirdPersonUserControl>();
-            if (Vector3.Distance(player.transform.position, npc.transform.position) < control.BRadius)
+            
+            if (Vector3.Distance(player.transform.position, group.transform.position) < control.BRadius)
             {
+                GlobalGameInfo.enemyGroup = group.GetComponent<Group>();
                 control.SetTransition(Transition.TransitionToBattleState);
-                control.transform.LookAt(npc.transform.position);
+                control.transform.LookAt(group.transform.position);
+                
             }
 
-            //if the amount of dead things in the group is equal to the size of the group, transition to normal state
-            int dead = 0;
-            for (int y = 0; y < Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count; y++)
-            {
-                CharacterData currentEnemyData = Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects[y].GetComponent<CharacterData>();
-                if (currentEnemyData.Alive == false) dead++;
-            }
-            if (dead >= Globals.GlobalGameInfo.enemyGroup.GroupMembersGameObjects.Count)control.SetTransition(Transition.TransitionToNormalState);
-        }
-
-        public override void DoBeforeEntering()
-        {
-            BattleUIUtils.ToggleEffectSubPanels();
-            BattleUIUtils.ToggleBattleUI();
         }
 
         public override void Act(GameObject player, GameObject npc)
         {
-            //turn off button input as a work around 
+            
             
         }
     }

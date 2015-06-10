@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using UnityEngine;
-using UnityStandardAssets.Characters;
 using AI;
 
 namespace CharacterScripts
@@ -36,7 +35,12 @@ namespace CharacterScripts
 
         public GameObject Leader
         {
-            get { return _GroupMemberGameObjects[0]; }
+            get 
+            {
+                //Debug.Log(_GroupMemberGameObjects[0].ToString());
+                return _GroupMemberGameObjects[0];
+            }
+
         }
         public Group()
         {
@@ -109,16 +113,21 @@ namespace CharacterScripts
 
         void Update()
         {
+            UpdateAvgPositionOfGroup();
+        }
+
+        public void UpdateAvgPositionOfGroup()
+        {
             int i = 0;
             avgOfGroup = new Vector3(0f, 0f, 0f);
             for (i = 0; i < _groupMemberCharacterData.Count; i++)
             {
                 /*t = _GroupMembers[i].GetComponent("CharacterData");
                 dat = (CharacterData)t;*/
-                avgOfGroup += _groupMemberCharacterData[i].Position;
+                avgOfGroup += _GroupMemberGameObjects[i].transform.position;
             }
             avgOfGroup /= _groupMemberCharacterData.Count;
-
+            this.gameObject.transform.position = avgOfGroup;
         }
     }
 }

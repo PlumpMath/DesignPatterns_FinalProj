@@ -46,12 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
-     <Compile Include="Assets\Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
-     <Compile Include="Assets\Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Assets\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
-     <Compile Include="Assets\Assets\Characters\RollerBall\Scripts\Ball.cs" />
-     <Compile Include="Assets\Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
      <Compile Include="Assets\Assets\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
      <Compile Include="Assets\Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
@@ -112,6 +106,7 @@
      <Compile Include="Assets\Assets\scripts\GUIScripts\TargetsPanelHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\TemplatePanelHandlerGUI.cs" />
      <Compile Include="Assets\Assets\scripts\GUIScripts\UpdateGUI.cs" />
+     <Compile Include="Assets\Assets\scripts\GUIScripts\turns.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\CharacterData.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\HealEffect.cs" />
      <Compile Include="Assets\Assets\scripts\GameLogic\EffectScripts\ConcreteEffects\NullEffect.cs" />
@@ -143,10 +138,8 @@
      <None Include="Assets\Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
      <None Include="Assets\Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
-     <None Include="Assets\Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-     <None Include="Assets\Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Turtle/Documents/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Users/James/Desktop/Files/Programming/UnityProjects/DesignPatterns_FinalProj/FinalProj/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
