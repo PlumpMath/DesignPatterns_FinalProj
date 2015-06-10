@@ -51,7 +51,7 @@ namespace EffectScripts
             get { return _target; }
         }
 
-        public abstract IEffect CreateEffect(CharacterData target);
+        public abstract IEffect CreateEffect(CharacterData caster, params CharacterData[] targets);
 
         private void Subscribe()
         {

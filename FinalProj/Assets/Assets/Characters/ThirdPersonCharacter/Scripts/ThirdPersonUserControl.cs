@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using FSM;
 using Globals;
+using Utils;
 
 namespace CharacterScripts
 {
@@ -35,6 +36,7 @@ namespace CharacterScripts
             m_Character = GetComponent<ThirdPersonCharacter>();
 
             MakeFSM();
+            BattleUIUtils.ToggleTurnsBtn();
         }
 
         private void MakeFSM()
@@ -65,7 +67,7 @@ namespace CharacterScripts
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
-            Debug.Log(fsm.CurrentStateID.ToString());
+            //Debug.Log(fsm.CurrentStateID.ToString());
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");

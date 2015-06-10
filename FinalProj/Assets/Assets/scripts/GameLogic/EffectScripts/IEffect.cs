@@ -9,7 +9,7 @@ namespace EffectScripts
 {
     public interface IEffect
     {
-        IEffect CreateEffect(CharacterData target);
+        IEffect CreateEffect(CharacterData caster, params CharacterData[] targets);
 
         string EffectNameDisplayString{get;}
         string EffectNameInternalString{get;}

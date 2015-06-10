@@ -7,6 +7,7 @@ namespace EffectScripts
     public class HealEffect : TimedEffect
     {
         private float _heal;
+        private float manaCost;
         
         private HealEffect(CharacterData target, string InternalEffectName ,string DisplayEffectName, float lifetime, float strength):base(target,InternalEffectName,DisplayEffectName,lifetime)
         {
@@ -23,9 +24,9 @@ namespace EffectScripts
             Target.CurHP += _heal;
         }
 
-        public override IEffect CreateEffect(CharacterData target)
+        public override IEffect CreateEffect(CharacterData caster, params CharacterData[] targets)
         {
-            return new HealEffect(target, this.EffectNameInternalString,this.EffectNameDisplayString, this.Lifetime, this._heal);
+            return new HealEffect(targets[0], this.EffectNameInternalString, this.EffectNameDisplayString, this.Lifetime, this._heal);
         }
     }
 }

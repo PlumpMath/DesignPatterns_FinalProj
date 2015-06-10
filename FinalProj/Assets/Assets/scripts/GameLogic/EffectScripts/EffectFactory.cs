@@ -16,10 +16,10 @@ namespace EffectScripts
             _EffectList = new List<Effects>();
 
             //Add effects to the list of effects in the game here
-            _EffectList.Add(new Effects(new NullEffect("NullEffect","Null Effect")                       , false));
-            _EffectList.Add(new Effects(new PoisonEffect("PoisonEffect","Poison Effect",1,.2f)           , true));
-            _EffectList.Add(new Effects(new HealEffect("HealEffect","Heal Effect",2,.2f)                 , true));
-            _EffectList.Add(new Effects(new TestInstantEffect("TestInstantEffect","TestInstantEffect",20), false));
+            _EffectList.Add(new Effects(new NullEffect("NullEffect","Null Effect")                           , false));
+            _EffectList.Add(new Effects(new PoisonEffect("PoisonEffect","Poison Effect",1,.2f,10f)           , true));
+            //_EffectList.Add(new Effects(new HealEffect("HealEffect","Heal Effect",2,.2f)                   , true));
+            _EffectList.Add(new Effects(new Weapon("Sword",5,20,0,5,1)                                       , false));
 
 
             CreateValidEffectList();
@@ -39,14 +39,14 @@ namespace EffectScripts
         }
 
 
-        public IEffect CreateEffect(string eff,CharacterData target)
+        public IEffect CreateEffect(string eff,CharacterData caster,params CharacterData[] targets)
         {
             int t = IndexOf(eff);
             if(t!=-1)
             {
-                return _EffectList[t].Effect.CreateEffect(target);
+                return _EffectList[t].Effect.CreateEffect(caster,targets);
             }
-
+            Debug.Log("EffectFactory: " + eff + " isn't in the factory.");
             return new NullEffect("NullEffect","Null Effect");
         }
 
