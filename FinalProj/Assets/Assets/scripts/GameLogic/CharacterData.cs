@@ -185,6 +185,17 @@ namespace CharacterScripts
             {
                 Death();
             }
+            Regen();
+        }
+
+        private void Regen()
+        {
+            if(_alive)
+            {
+                CurHP += .01;
+                CurMP += .1;
+                CurStamina += .2;
+            }
         }
 
         private void Death()
@@ -199,9 +210,9 @@ namespace CharacterScripts
             
         }
 
-        public bool attack(CharacterData target)
+        public void attack(CharacterData target)
         {
-            return _weapon.attack(this, target);
+            _weapon.CreateEffect(this, target);
         }
 
         public string Name

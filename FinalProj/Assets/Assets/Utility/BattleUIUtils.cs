@@ -17,6 +17,8 @@ namespace Utils
         private static BattleUIUtils _battleUiSingleton = new BattleUIUtils();
         private static GameObject effectBtnPanel;
         private static GameObject targetBtnPanel;
+        private static GameObject turnsBtn;
+
         public static void ToggleBattleUI()
         {
             foreach (GameObject but in GlobalGameInfo.BattleUI)
@@ -53,6 +55,20 @@ namespace Utils
             }
         }
 
+        private static void SetTurnsBtn()
+        {
+            GameObject tmp = GameObject.FindGameObjectWithTag("TurnButton");
+            if(tmp!=null)
+            {
+                turnsBtn = tmp;
+            }
+            else
+            {
+                //this warning can be ignored if it isn't causing issues
+                Debug.LogWarning("BatteUIUtils: TurnsButton can't be found.");
+            }
+        }
+
         private static void SetTargetBtnPanel()
         {
             GameObject tmp = GameObject.FindGameObjectWithTag("TargetButtonsPanel");
@@ -82,6 +98,12 @@ namespace Utils
             SetTargetBtnPanel();
             effectBtnPanel.SetActive(false);
             targetBtnPanel.SetActive(false);
+        }
+
+        public static void ToggleTurnsBtn()
+        {
+            SetTurnsBtn();
+            PanelHandler.StaticTogglePanel(turnsBtn);
         }
     }   
 }

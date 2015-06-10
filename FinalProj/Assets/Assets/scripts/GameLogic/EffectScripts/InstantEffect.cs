@@ -24,12 +24,13 @@ namespace EffectScripts
             get { return _DisplayEffectName; }
         }
 
-        public abstract IEffect CreateEffect(CharacterData target);
 
         public string EffectNameInternalString
         {
             get { return _InternalEffectName; }
         }
+
+        public abstract IEffect CreateEffect(CharacterData caster, params CharacterData[] targets);
     }
 }
 

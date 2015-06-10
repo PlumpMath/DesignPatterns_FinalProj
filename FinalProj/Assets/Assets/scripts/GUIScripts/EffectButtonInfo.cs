@@ -8,7 +8,9 @@ namespace GUIScripts
 {
     public class EffectButtonInfo : MonoBehaviour
     {
+        [SerializeField]
         private string _DisplayString;
+        [SerializeField]
         private string _InternalNameString;
         private Button _but;
 
@@ -22,7 +24,7 @@ namespace GUIScripts
             get { return _DisplayString; }
             set
             {
-                if(_DisplayString == null)
+                if(_DisplayString == null || _DisplayString == "")
                 {
                     _DisplayString = value;
                     Text t = GetComponentInChildren<Text>();
@@ -40,7 +42,7 @@ namespace GUIScripts
             get { return _InternalNameString; }
             set
             {
-                if(_InternalNameString == null)
+                if(_InternalNameString == null || _InternalNameString == "")
                 {
                     _InternalNameString = value;
                 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using CharacterScripts;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -15,15 +16,24 @@ namespace GUIScripts
 
         private List<GameObject> _Buttons;
         private Group _grp;
+        private static int numMovesAllowed;
+        private static int numMoves;
+
 
         void Awake()
         {
             _Buttons = new List<GameObject>();
+            numMovesAllowed = GlobalGameInfo.PlayerGroupData.GroupMembersCharacterData.Count;
         }
 
         protected override void Hook1()
         {
             _grp = GlobalGameInfo.enemyGroup;
+        }
+
+        public static void ResetMoveCounter()
+        {
+            numMoves = 0;
         }
 
         protected override int ConstructButtons()
@@ -83,14 +93,26 @@ namespace GUIScripts
 
         public void ButtonCallback(BaseEventData eventData)
         {
-            GameObject but = eventData.selectedObject;
-            //Debug.Log(but.ToString() +", "+ but.GetType());
-            TargetButtonInfo info = but.GetComponent<TargetButtonInfo>();
+            if(numMoves < numMovesAllowed)
+            {
+                GameObject but = eventData.selectedObject;
+                //Debug.Log(but.ToString() +", "+ but.GetType());
+                TargetButtonInfo info = but.GetComponent<TargetButtonInfo>();
 
-            GameObject turnsBtn = GameObject.FindGameObjectWithTag("TurnButton");
-            //Debug.Log("info.TargetNum:" + info.TargetNum);
-            turns t = turnsBtn.GetComponent<turns>();
-            t.AddAction(info.Effect, _grp.GroupMembersCharacterData[info.TargetNum]);
+                GameObject turnsBtn = GameObject.FindGameObjectWithTag("TurnButton");
+                //Debug.Log("info.TargetNum:" + info.TargetNum);
+                turns t = turnsBtn.GetComponent<turns>();
+                System.Random rand = new System.Random();
+                int tmp = GlobalGameInfo.PlayerGroupData.GroupMembersCharacterData.Count - 1;
+                int r = rand.Next(tmp);
+
+                t.AddAction(info.Effect, GlobalGameInfo.PlayerGroupData.GroupMembersCharacterData[r], _grp.GroupMembersCharacterData[info.TargetNum]);
+                numMoves++;
+            }
+            else
+            {
+                Debug.Log("Max moves allowed performed");
+            }
         }
     }
 }

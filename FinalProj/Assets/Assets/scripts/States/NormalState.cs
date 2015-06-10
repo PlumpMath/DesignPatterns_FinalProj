@@ -10,10 +10,12 @@ namespace CharacterScripts
 {
     public class NormalState : FSMState
     {
+
         public NormalState()
         {
             _stateID = StateID.NormalStateID;
         }
+
 
         public override void Reason(GameObject player, GameObject group)
         {
@@ -29,6 +31,13 @@ namespace CharacterScripts
             }
 
         }
+
+        public override void DoBeforeEntering()
+        {
+            BattleUIUtils.ToggleTurnsBtn();
+        }
+
+
 
         public override void Act(GameObject player, GameObject npc)
         {

@@ -3,13 +3,14 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using EffectScripts;
+using Globals;
 
 namespace CharacterScripts
 {
-    public class Weapon 
+    public class Weapon : InstantEffect
     {
         [SerializeField]
-        private string _name;
+        private string _InternalName;
         [SerializeField]
         private IEffect _AttackEffect;
 
@@ -112,16 +113,23 @@ namespace CharacterScripts
         }
         #endregion
 
-        protected Weapon(string name, double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit)
+        public Weapon(string name, double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit):base(name,"")
         {
-            _name = name;
+            _InternalName = name;
             setWeaponStats(minDmg,maxDmg,manaCost,staminaCost,chanceToHit, new NullEffect("NullEffect", "Null Effect"));
         }
 
-        protected Weapon(string name,double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit,IEffect eff)
+        public Weapon(string name,double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit,IEffect eff):base(name,"")
         {
-            _name = name;
+            _InternalName = name;
             setWeaponStats(minDmg, maxDmg, manaCost, staminaCost, chanceToHit, eff);
+        }
+
+        private Weapon(CharacterData holder, string name, double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit, IEffect eff, CharacterData target)
+        {
+            _InternalName = name;
+            setWeaponStats(minDmg, maxDmg, manaCost, staminaCost, chanceToHit, eff);
+            attack(holder, target);
         }
 
         private void setWeaponStats(double minDmg, double maxDmg, double manaCost, double staminaCost, double chanceToHit, IEffect eff)
@@ -135,7 +143,7 @@ namespace CharacterScripts
             _AttackEffect = eff;
         }
 
-        public virtual bool attack(CharacterData Holder, CharacterData target)
+        private bool attack(CharacterData Holder, CharacterData target)
         {
             float temp = UnityEngine.Random.value;
             //the character uses up stamina and mana even if the attack misses
@@ -143,15 +151,21 @@ namespace CharacterScripts
             Holder.CurStamina = Holder.CurStamina - _StaminaCost;
             //if the characters chance to hit and the weapons chance to hit and both less than or equal to a randomly determined value
             //the attack lands
-            if (Holder.ChanceToHit <= temp && _ChanceToHit <= temp)
+            if (Holder.ChanceToHit >= temp && _ChanceToHit >= temp)
             {
                 //generate a random number between min and max damage of this characters weapon;
-                double dmg = UnityEngine.Random.value * (target.Weapon.MaxDamage - target.Weapon.MinDamage) + target.Weapon.MinDamage;
+                double dmg = UnityEngine.Random.value * (MaxDamage - MinDamage) + MinDamage;
+                dmg *= Holder.CurStamina / GlobalConsts.STAMINA_DAMAGE_DIVIDER;
                 target.CurHP = target.CurHP - dmg;
                 _AttackEffect.CreateEffect(target);
                 return true;
             }
             return false;
+        }
+
+        public override IEffect CreateEffect(CharacterData caster, params CharacterData[] targets)
+        {
+            return new Weapon(caster,this._InternalName,this._MinDamage,this._MaxDamage,this._ManaCost,this._StaminaCost,this._ChanceToHit,this._AttackEffect,targets[0]);
         }
     }
 }

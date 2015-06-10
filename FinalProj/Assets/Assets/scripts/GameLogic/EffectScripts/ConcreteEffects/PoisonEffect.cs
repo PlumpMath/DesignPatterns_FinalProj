@@ -7,15 +7,18 @@ namespace EffectScripts
     public class PoisonEffect : TimedEffect
     {
         private float _damage;
+        private float _manaCost;
 
-	    private PoisonEffect(CharacterData target, string InternalEffectName ,string DisplayEffectName, float lifetime, float strength):base(target,InternalEffectName,DisplayEffectName,lifetime)
+	    private PoisonEffect(CharacterData caster, CharacterData target, string InternalEffectName ,string DisplayEffectName, float lifetime, float strength, float manaCost):base(target,InternalEffectName,DisplayEffectName,lifetime)
         {
             _damage = strength;
+            caster.CurMP -= manaCost;
         }
 
-        public PoisonEffect(string InternalEffectName, string DisplayEffectName, float lifetime, float strength):base(InternalEffectName, DisplayEffectName,lifetime)
+        public PoisonEffect(string InternalEffectName, string DisplayEffectName, float lifetime, float strength, float manaCost):base(InternalEffectName, DisplayEffectName,lifetime)
         {
             _damage = strength;
+            _manaCost = manaCost;
         }
 
         public override void ApplyEffect()
@@ -23,9 +26,19 @@ namespace EffectScripts
             Target.CurHP -= _damage;
         }
 
-        public override IEffect CreateEffect(CharacterData target)
+
+        public override IEffect CreateEffect(CharacterData caster, params CharacterData[] targets)
         {
-            return new PoisonEffect(target,this.EffectNameInternalString,EffectNameDisplayString,this.Lifetime,this._damage);
+            if(caster.CurMP >= _manaCost)
+            {
+                return new PoisonEffect(caster, targets[0], this.EffectNameInternalString, EffectNameDisplayString, this.Lifetime, this._damage, this._manaCost);
+            }
+            else
+            {
+                Debug.Log("Failed cast, Not enough mana");
+                return new NullEffect("NullEffect", "Null Effect");
+            }
+            
         }
     }
 }

@@ -33,12 +33,14 @@ namespace CharacterScripts
             BattleUIUtils.InstantiateBattleUI();
             //ensure that the sub panels are not enabled at the start of battle
             BattleUIUtils.SetEffectSubPanelsToOff();
+            BattleUIUtils.ToggleTurnsBtn();
         }
 
         public override void DoBeforeLeaving()
         {
             DestroyBattleUI();
             DestroyEnemyGroup();
+            BattleUIUtils.ToggleTurnsBtn();
             
 
             /*GameObject[] markers = GameObject.FindGameObjectsWithTag("PositionMarker");
